@@ -1,0 +1,9 @@
+"AddonInfo"
+{
+	"name"			"Wattle"
+	"version"		"02/03/15"
+	"author_name"		"Awcmon"
+	"author_url"		""
+	"info"			"The emblem of our land. You can stick it in a bottle, you can hold it in your hand."
+	"override"		"0"
+}

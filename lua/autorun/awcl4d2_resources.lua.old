@@ -1,0 +1,2357 @@
+
+if (SERVER) then
+	AddCSLuaFile("autorun/awcl4d2_resources.lua")
+end
+
+//L4D2 particles are not compatible with GMod as of 01/03/14, mm/dd/yy
+//game.AddParticles("particles/weapon_fx.pcf") 
+
+if (CLIENT) then
+
+	surface.CreateFont( "Roboto25",
+	{
+		font      = "Roboto-Black",
+		size      = ScreenScale(25),
+		weight    = 500,
+		antialias 	= true,
+		blursize 	= 0,
+		scanlines 	= 0,
+		underline 	= false,
+		italic 		= false,
+		strikeout 	= false,
+		symbol 		= false,
+		rotary 		= false,
+		shadow 		= false,
+		additive 	= false,
+		outline 	= false
+	}
+	)
+
+end
+
+//Fancy programmer art
+/*---------------------
+---Soundscript SetUp---
+---------------------*/
+//So you can shoot while moving in MP and still actually hear it.
+
+/*
+//SCAR
+sound.Add(
+{
+ name = "L4D2_SCAR.Fire",
+ channel = CHAN_WEAPON,
+ volume = 1.0,
+ soundlevel = 100,
+ pitchstart = 100,
+ pitchend = 100,
+ sound = "weapons/rifle_desert/gunfire/rifle_fire_1.wav"
+}
+)
+
+//AK47
+sound.Add(
+{
+ name = "L4D2_AK47.Fire",
+ channel = CHAN_WEAPON,
+ volume = 1.0,
+ soundlevel = 100,
+ pitchstart = 100,
+ pitchend = 100,
+ sound = "weapons/rifle_ak47/gunfire/rifle_fire_1.wav"
+}
+)
+
+//Desert Eagle
+sound.Add(
+{
+ name = "L4D2_Deagle.Fire",
+ channel = CHAN_WEAPON,
+ volume = 1.0,
+ soundlevel = 100,
+ pitchstart = 100,
+ pitchend = 100,
+ sound = "weapons/magnum/gunfire/magnum_shoot.wav"
+}
+)
+*/
+
+
+
+sound.Add(
+{
+	name = "50cal.Fire",
+	channel = CHAN_WEAPON,
+	sound =		"weapons/50cal/50cal_shoot.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Magnum.Fire",
+	channel = CHAN_WEAPON,
+	sound =		"weapons/magnum/gunfire/magnum_shoot.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Magnum.Deploy",
+	channel = CHAN_WEAPON,
+	sound =		"weapons/pistol/gunother/pistol_deploy_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Magnum.ClipIn",
+	channel = CHAN_ITEM,
+	sound =		"weapons/pistol/gunother/pistol_clip_in_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Magnum.ClipOut",
+	channel = CHAN_ITEM,
+	sound =		"weapons/pistol/gunother/pistol_clip_out_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Magnum.ClipLocked",
+	channel = CHAN_STATIC,
+	sound =		"weapons/pistol/gunother/pistol_clip_locked_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Magnum.Slideback",
+	channel = CHAN_ITEM,
+	sound =		"weapons/pistol/gunother/pistol_slideback_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Magnum.SlideForward",
+	channel = CHAN_ITEM,
+	sound =		"weapons/pistol/gunother/pistol_slideforward_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Pistol.HelpingHandRetract",
+	channel = CHAN_ITEM,
+	sound =		"weapons/pistol/gunother/pistol_helpinghandretract.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Pistol.HelpingHandExtend",
+	channel = CHAN_ITEM,
+	sound =		"weapons/pistol/gunother/pistol_helpinghandextend.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Pistol.ItemPickupRetract",
+	channel = CHAN_ITEM,
+	sound =		"weapons/pistol/gunother/pistol_helpinghandretract.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Pistol.ItemPickupExtend",
+	channel = CHAN_ITEM,
+	sound =		"weapons/pistol/gunother/pistol_helpinghandextend.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Pistol.Deploy",
+	channel = CHAN_WEAPON,
+	sound =		"weapons/pistol/gunother/pistol_deploy_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Pistol.ClipIn",
+	channel = CHAN_ITEM,
+	sound =		"weapons/pistol/gunother/pistol_clip_in_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Pistol.ClipOut",
+	channel = CHAN_ITEM,
+	sound =		"weapons/pistol/gunother/pistol_clip_out_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Pistol.ClipLocked",
+	channel = CHAN_STATIC,
+	sound =		"weapons/pistol/gunother/pistol_clip_locked_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Pistol.Slideback",
+	channel = CHAN_ITEM,
+	sound =		"weapons/pistol/gunother/pistol_slideback_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Pistol.SlideForward",
+	channel = CHAN_ITEM,
+	sound =		"weapons/pistol/gunother/pistol_slideforward_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Pistol.Fire",
+	channel = CHAN_WEAPON,
+	sound =		"weapons/pistol/gunfire/pistol_fire.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Pistol.DualFire",
+	channel = CHAN_WEAPON,
+	sound =		"weapons/pistol/gunfire/pistol_dual_fire.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Pistol_Silver.HelpingHandRetract",
+	channel = CHAN_ITEM,
+	sound =		"weapons/pistol/gunother/pistol_helpinghandretract.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Pistol_Silver.HelpingHandExtend",
+	channel = CHAN_ITEM,
+	sound =		"weapons/pistol/gunother/pistol_helpinghandextend.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Pistol_Silver.ItemPickupRetract",
+	channel = CHAN_ITEM,
+	sound =		"weapons/pistol/gunother/pistol_helpinghandretract.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Pistol_Silver.ItemPickupExtend",
+	channel = CHAN_ITEM,
+	sound =		"weapons/pistol/gunother/pistol_helpinghandextend.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Pistol_Silver.Deploy",
+	channel = CHAN_ITEM,
+	sound =		"weapons/pistol_silver/gunother/pistol_silver_deploy_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Pistol_Silver.ClipIn",
+	channel = CHAN_ITEM,
+	sound =		"weapons/pistol/gunother/pistol_clip_in_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Pistol_Silver.ClipOut",
+	channel = CHAN_ITEM,
+	sound =		"weapons/pistol/gunother/pistol_clip_out_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Pistol_Silver.ClipLocked",
+	channel = CHAN_ITEM,
+	sound =		"weapons/pistol/gunother/pistol_clip_locked_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Pistol_Silver.Slideback",
+	channel = CHAN_STATIC,
+	sound =		"weapons/pistol/gunother/pistol_slideback_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Pistol_Silver.SlideForward",
+	channel = CHAN_STATIC,
+	sound =		"weapons/pistol/gunother/pistol_slideforward_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Pistol_Silver.Fire",
+	channel = CHAN_WEAPON,
+	sound =		"weapons/pistol_silver/gunfire/pistol_fire.wav"
+}
+)
+
+sound.Add(
+{
+	name = "DualPistol.Deploy",
+	channel = CHAN_WEAPON,
+	sound =		"weapons/dual_pistol/gunother/dualpistol_deploy_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "DualPistol.ClipIn",
+	channel = CHAN_ITEM,
+	sound =		"weapons/dual_pistol/gunother/dualpistol_clip_in_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "DualPistol.ClipOut",
+	channel = CHAN_STATIC,
+	sound =		"weapons/dual_pistol/gunother/dualpistol_clip_out_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "DualPistol.SlideBack",
+	channel = CHAN_ITEM,
+	sound =		"weapons/pistol/gunother/pistol_slideback_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "DualPistol.SlideForward",
+	channel = CHAN_STATIC,
+	sound =		"weapons/pistol/gunother/pistol_slideforward_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Dualpistol.ClipLocked",
+    channel = CHAN_ITEM,
+  
+    sound =              "weapons/pistol/gunother/pistol_clip_locked_1.wav"
+}
+)
+
+
+sound.Add(
+{
+	name = "DualPistol.HelpingHandExtend",
+	channel = CHAN_ITEM,
+	sound =		"weapons/pistol/gunother/pistol_helpinghandextend.wav"
+}
+)
+
+sound.Add(
+{
+	name = "DualPistol.HelpingHandRetract",
+	channel = CHAN_ITEM,
+	sound =		"weapons/pistol/gunother/pistol_helpinghandretract.wav"
+}
+)
+
+sound.Add(
+{
+	name = "DualPistol.ItemPickupExtend",
+	channel = CHAN_ITEM,
+	sound =		"weapons/pistol/gunother/pistol_helpinghandextend.wav"
+}
+)
+
+sound.Add(
+{
+	name = "DualPistol.ItemPickupRetract",
+	channel = CHAN_ITEM,
+	sound =		"weapons/pistol/gunother/pistol_helpinghandretract.wav"
+}
+)
+
+sound.Add(
+{
+	name = "DualPistol.Ready",
+	channel = CHAN_ITEM,
+	sound =		"weapons/dual_pistol/gunother/dualpistol_deploy_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "SMG.HelpingHandExtend",
+	channel = CHAN_ITEM,
+	sound =		"weapons/pistol/gunother/pistol_helpinghandextend.wav"
+}
+)
+
+sound.Add(
+{
+	name = "SMG.HelpingHandRetract",
+	channel = CHAN_ITEM,
+	sound =		"weapons/pistol/gunother/pistol_helpinghandretract.wav"
+}
+)
+
+sound.Add(
+{
+	name = "SMG.ItemPickupExtend",
+	channel = CHAN_ITEM,
+	sound =		"weapons/pistol/gunother/pistol_helpinghandextend.wav"
+}
+)
+
+sound.Add(
+{
+	name = "SMG.ItemPickupRetract",
+	channel = CHAN_ITEM,
+	sound =		"weapons/pistol/gunother/pistol_helpinghandretract.wav"
+}
+)
+
+sound.Add(
+{
+	name = "SMG.Deploy",
+	channel = CHAN_ITEM,
+	sound =		"weapons/smg/gunother/smg_deploy_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "SMG.ClipIn",
+	channel = CHAN_ITEM,
+	sound =		"weapons/SMG/gunother/smg_clip_in_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "SMG.ClipOut",
+	channel = CHAN_ITEM,
+	sound =		"weapons/SMG/gunother/smg_clip_out_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "SMG.ClipLocked",
+	channel = CHAN_ITEM,
+	sound =		"weapons/SMG/gunother/smg_clip_locked_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "SMG.SlideBack",
+	channel = CHAN_ITEM,
+	sound =		"weapons/SMG/gunother/smg_slideback_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "SMG.SlideForward",
+	channel = CHAN_ITEM,
+	sound =		"weapons/SMG/gunother/smg_slideforward_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "SMG.FullAutoButton",
+	channel = CHAN_ITEM,
+	sound =		"weapons/SMG/gunother/smg_fullautobutton_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "SMG.Fire",
+	channel = CHAN_WEAPON,
+	sound =		"weapons/SMG/gunfire/smg_fire_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "SMG.FireIncendiary",
+	channel = CHAN_WEAPON,
+	sound =		"weapons/SMG/gunfire/smg_fire_1_incendiary.wav"
+}
+)
+
+sound.Add(
+{
+	name = "SMG_Silenced.HelpingHandExtend",
+	channel = CHAN_ITEM,
+	sound =		"weapons/pistol/gunother/pistol_helpinghandextend.wav"
+}
+)
+
+sound.Add(
+{
+	name = "SMG_Silenced.HelpingHandRetract",
+	channel = CHAN_ITEM,
+	sound =		"weapons/pistol/gunother/pistol_helpinghandretract.wav"
+}
+)
+
+sound.Add(
+{
+	name = "SMG_Silenced.ItemPickupExtend",
+	channel = CHAN_ITEM,
+	sound =		"weapons/pistol/gunother/pistol_helpinghandextend.wav"
+}
+)
+
+sound.Add(
+{
+	name = "SMG_Silenced.ItemPickupRetract",
+	channel = CHAN_ITEM,
+	sound =		"weapons/pistol/gunother/pistol_helpinghandretract.wav"
+}
+)
+
+sound.Add(
+{
+	name = "SMG_Silenced.Deploy",
+	channel = CHAN_ITEM,
+	sound =		"weapons/smg_silenced/gunother/smg_silenced_deploy_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "SMG_Silenced.ClipIn",
+	channel = CHAN_ITEM,
+	sound =		"weapons/SMG/gunother/smg_clip_in_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "SMG_Silenced.ClipOut",
+	channel = CHAN_ITEM,
+	sound =		"weapons/SMG/gunother/smg_clip_out_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "SMG_Silenced.ClipLocked",
+	channel = CHAN_ITEM,
+	sound =		"weapons/SMG/gunother/smg_clip_locked_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "SMG_Silenced.SlideBack",
+	channel = CHAN_ITEM,
+	sound =		"weapons/SMG/gunother/smg_slideback_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "SMG_Silenced.SlideForward",
+	channel = CHAN_ITEM,
+	sound =		"weapons/SMG/gunother/smg_slideforward_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "SMG_Silenced.FullAutoButton",
+	channel = CHAN_ITEM,
+	sound =		"weapons/SMG/gunother/smg_fullautobutton_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "SMG_Silenced.Fire",
+	channel = CHAN_WEAPON,
+	sound =		"weapons/SMG_silenced/gunfire/smg_fire_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "SMG_Silenced.FireIncendiary",
+	channel = CHAN_WEAPON,
+	sound =		"weapons/SMG_silenced/gunfire/smg_fire_1_incendiary.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Shotgun_Chrome.Fire",
+	channel = CHAN_WEAPON,
+	sound =		"weapons/shotgun_chrome/gunfire/shotgun_fire_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Shotgun_Chrome.FireIncendiary",
+	channel = CHAN_WEAPON,
+	sound =		"weapons/shotgun_chrome/gunfire/shotgun_fire_1_incendiary.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Shotgun.HelpingHandRetract",
+	channel = CHAN_ITEM,
+	sound =		"weapons/rifle/gunother/rifle_helpinghandretract.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Shotgun.HelpingHandExtend",
+	channel = CHAN_ITEM,
+	sound =		"weapons/rifle/gunother/rifle_helpinghandextend.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Shotgun.ItemPickupRetract",
+	channel = CHAN_ITEM,
+	sound =		"weapons/rifle/gunother/rifle_helpinghandretract.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Shotgun.ItemPickupExtend",
+	channel = CHAN_ITEM,
+	sound =		"weapons/rifle/gunother/rifle_helpinghandextend.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Shotgun.Deploy",
+	channel = CHAN_ITEM,
+	sound =		"weapons/shotgun/gunother/shotgun_deploy_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Shotgun.LoadShell",
+	channel = CHAN_ITEM,
+	sound =		"weapons/shotgun/gunother/shotgun_load_shell_4.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Shotgun.Pump",
+	channel = CHAN_ITEM,
+	sound =		"weapons/shotgun/gunother/shotgun_pump_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Shotgun.Fire",
+	channel = CHAN_WEAPON,
+	sound =		"weapons/shotgun/gunfire/shotgun_fire_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Shotgun.FireIncendiary",
+	channel = CHAN_WEAPON,
+	sound =		"weapons/shotgun/gunfire/shotgun_fire_1_incendiary.wav"
+}
+)
+
+sound.Add(
+{
+	name = "AutoShotgun_Spas.Fire",
+	channel = CHAN_WEAPON,
+	sound =		"weapons/auto_shotgun_spas/gunfire/shotgun_fire_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "AutoShotgun_Spas.FireIncendiary",
+	channel = CHAN_WEAPON,
+	sound =		"weapons/auto_shotgun_spas/gunfire/shotgun_fire_1_incendiary.wav"
+}
+)
+
+sound.Add(
+{
+	name = "AutoShotgun.BoltBack",
+	channel = CHAN_ITEM,
+	sound =		"weapons/auto_shotgun/gunother/autoshotgun_boltback.wav"
+}
+)
+
+sound.Add(
+{
+	name = "AutoShotgun.BoltForward",
+	channel = CHAN_ITEM,
+	sound =		"weapons/auto_shotgun/gunother/autoshotgun_boltforward.wav"
+}
+)
+
+sound.Add(
+{
+	name = "AutoShotgun.HelpingHandExtend",
+	channel = CHAN_ITEM,
+	sound =		"weapons/rifle/gunother/rifle_helpinghandextend.wav"
+}
+)
+
+sound.Add(
+{
+	name = "AutoShotgun.HelpingHandRetract",
+	channel = CHAN_ITEM,
+	sound =		"weapons/rifle/gunother/rifle_helpinghandretract.wav"
+}
+)
+
+sound.Add(
+{
+	name = "AutoShotgun.ItemPickupRetract",
+	channel = CHAN_ITEM,
+	sound =		"weapons/rifle/gunother/rifle_helpinghandretract.wav"
+}
+)
+
+sound.Add(
+{
+	name = "AutoShotgun.ItemPickupExtend",
+	channel = CHAN_ITEM,
+	sound =		"weapons/rifle/gunother/rifle_helpinghandextend.wav"
+}
+)
+
+sound.Add(
+{
+	name = "AutoShotgun.Deploy",
+	channel = CHAN_ITEM,
+	sound =		"weapons/auto_shotgun/gunother/autoshotgun_deploy_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "AutoShotgunSpas.Deploy",
+	channel = CHAN_WEAPON,
+	sound =		"weapons/auto_shotgun/gunother/autoshotgun_deploy_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "AutoShotgun.LoadShell",
+	channel = CHAN_ITEM,
+	sound =		"weapons/auto_shotgun/gunother/auto_shotgun_load_shell_4.wav"
+}
+)
+
+sound.Add(
+{
+	name = "AutoShotgun.Fire",
+	channel = CHAN_WEAPON,
+	sound =		"weapons/auto_shotgun/gunfire/auto_shotgun_fire_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "AutoShotgun.FireIncendiary",
+	channel = CHAN_WEAPON,
+	sound =		"weapons/auto_shotgun/gunfire/auto_shotgun_fire_1_Incendiary.wav"
+}
+)
+
+sound.Add(
+{
+	name = "HuntingRifle.HelpingHandExtend",
+	channel = CHAN_ITEM,
+	sound =		"weapons/rifle/gunother/rifle_helpinghandextend.wav"
+}
+)
+
+sound.Add(
+{
+	name = "HuntingRifle.HelpingHandRetract",
+	channel = CHAN_ITEM,
+	sound =		"weapons/rifle/gunother/rifle_helpinghandretract.wav"
+}
+)
+
+sound.Add(
+{
+	name = "HuntingRifle.ItemPickupExtend",
+	channel = CHAN_ITEM,
+	sound =		"weapons/rifle/gunother/rifle_helpinghandextend.wav"
+}
+)
+
+sound.Add(
+{
+	name = "HuntingRifle.ItemPickupRetract",
+	channel = CHAN_ITEM,
+	sound =		"weapons/rifle/gunother/rifle_helpinghandretract.wav"
+}
+)
+
+sound.Add(
+{
+	name = "HuntingRifle.Deploy",
+	channel = CHAN_ITEM,
+	sound =		"weapons/hunting_rifle/gunother/hunting_rifle_deploy_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "HuntingRifle.ClipIn",
+	channel = CHAN_ITEM,
+	sound =		"weapons/hunting_rifle/gunother/hunting_rifle_clipin.wav"
+}
+)
+
+sound.Add(
+{
+	name = "HuntingRifle.ClipOut",
+	channel = CHAN_ITEM,
+	sound =		"weapons/hunting_rifle/gunother/hunting_rifle_clipout.wav"
+}
+)
+
+sound.Add(
+{
+	name = "HuntingRifle.ClipLocked",
+	channel = CHAN_ITEM,
+	sound =		"weapons/hunting_rifle/gunother/hunting_rifle_cliplocked.wav"
+}
+)
+
+sound.Add(
+{
+	name = "HuntingRifle.Boltback",
+	channel = CHAN_ITEM,
+	sound =		"weapons/hunting_rifle/gunother/hunting_rifle_boltback.wav"
+}
+)
+
+sound.Add(
+{
+	name = "HuntingRifle.BoltForward",
+	channel = CHAN_STATIC,
+	sound =		"weapons/hunting_rifle/gunother/hunting_rifle_boltforward.wav"
+}
+)
+
+sound.Add(
+{
+	name = "HuntingRifle.PushButton",
+	channel = CHAN_ITEM,
+	sound =		"weapons/hunting_rifle/gunother/hunting_rifle_push_button_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "HuntingRifle.Zoom",
+	channel = CHAN_ITEM,
+	sound =		"weapons/hunting_rifle/gunother/hunting_rifle_zoom.wav"
+}
+)
+
+sound.Add(
+{
+	name = "HuntingRifle.Fire",
+	channel = CHAN_WEAPON,
+	sound =		"weapons/hunting_rifle/gunfire/hunting_rifle_fire_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "HuntingRifle.FireIncendiary",
+	channel = CHAN_WEAPON,
+	sound =		"weapons/hunting_rifle/gunfire/hunting_rifle_fire_1_Incendiary.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Sniper_Military.HelpingHandExtend",
+	channel = CHAN_ITEM,
+	sound =		"weapons/rifle/gunother/rifle_helpinghandextend.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Sniper_Military.HelpingHandRetract",
+	channel = CHAN_ITEM,
+	sound =		"weapons/rifle/gunother/rifle_helpinghandretract.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Sniper__Military.ItemPickupExtend",
+	channel = CHAN_ITEM,
+	sound =		"weapons/rifle/gunother/rifle_helpinghandextend.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Sniper_Military.ItemPickupRetract",
+	channel = CHAN_ITEM,
+	sound =		"weapons/rifle/gunother/rifle_helpinghandretract.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Sniper_Military.Deploy",
+	channel = CHAN_ITEM,
+	sound =		"weapons/sniper_military/gunother/sniper_military_deploy_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Sniper_Military.ClipIn",
+	channel = CHAN_ITEM,
+	sound =		"weapons/sniper_military/gunother/sniper_military_clip_in_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Sniper_Military.ClipOut",
+	channel = CHAN_ITEM,
+	sound =		"weapons/sniper_military/gunother/sniper_military_clip_out_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Sniper_Military.ClipLocked",
+	channel = CHAN_ITEM,
+	sound =		"weapons/sniper_military/gunother/sniper_military_clip_locked_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Sniper_Military.Boltback",
+	channel = CHAN_ITEM,
+	sound =		"weapons/sniper_military/gunother/sniper_military_slideback_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Sniper_Military.BoltForward",
+	channel = CHAN_STATIC,
+	sound =		"weapons/sniper_military/gunother/sniper_military_slideforward_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Sniper_Military.PushButton",
+	channel = CHAN_ITEM,
+	sound =		"weapons/sniper_military/gunother/sniper_military_push_button_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Sniper_Military.Zoom",
+	channel = CHAN_ITEM,
+	sound =		"weapons/sniper_military/gunother/sniper_military_zoom.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Sniper_Military.Fire",
+	channel = CHAN_WEAPON,
+	sound =		"weapons/sniper_military/gunfire/sniper_military_fire_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Sniper_Military.FireIncendiary",
+	channel = CHAN_WEAPON,
+	sound =		"weapons/sniper_military/gunfire/sniper_military_fire_1_Incendiary.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Rifle.HelpingHandExtend",
+	channel = CHAN_ITEM,
+	sound =		"weapons/rifle/gunother/rifle_helpinghandextend.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Rifle.HelpingHandRetract",
+	channel = CHAN_ITEM,
+	sound =		"weapons/rifle/gunother/rifle_helpinghandretract.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Rifle.ItemPickupExtend",
+	channel = CHAN_ITEM,
+	sound =		"weapons/rifle/gunother/rifle_helpinghandextend.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Rifle.ItemPickupRetract",
+	channel = CHAN_ITEM,
+	sound =		"weapons/rifle/gunother/rifle_helpinghandretract.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Rifle.Deploy",
+	channel = CHAN_ITEM,
+	sound =		"weapons/rifle/gunother/rifle_deploy_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Rifle.ClipIn",
+	channel = CHAN_ITEM,
+	sound =		"weapons/rifle/gunother/rifle_clip_in_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Rifle.ClipOut",
+	channel = CHAN_ITEM,
+	sound =		"weapons/rifle/gunother/rifle_clip_out_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Rifle.ClipLocked",
+	channel = CHAN_ITEM,
+	sound =		"weapons/rifle/gunother/rifle_clip_locked_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Rifle.SlideBack",
+	channel = CHAN_ITEM,
+	sound =		"weapons/rifle/gunother/rifle_slideback_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Rifle.SlideForward",
+	channel = CHAN_ITEM,
+	sound =		"weapons/rifle/gunother/rifle_slideforward_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Rifle.PushButton",
+	channel = CHAN_ITEM,
+	sound =		"weapons/rifle/gunother/rifle_ready_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Rifle.FullAutoButton",
+	channel = CHAN_ITEM,
+	sound =		"weapons/rifle/gunother/rifle_fullautobutton_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Rifle.Fire",
+	channel = CHAN_WEAPON,
+	sound =		"weapons/rifle/gunfire/rifle_fire_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Rifle.FireIncendiary",
+	channel = CHAN_WEAPON,
+	sound =		"weapons/rifle/gunfire/rifle_fire_1_incendiary.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Rifle_Desert.HelpingHandExtend",
+	channel = CHAN_ITEM,
+	sound =		"weapons/rifle/gunother/rifle_helpinghandextend.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Rifle_Desert.HelpingHandRetract",
+	channel = CHAN_ITEM,
+	sound =		"weapons/rifle/gunother/rifle_helpinghandretract.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Rifle_Desert.ItemPickupExtend",
+	channel = CHAN_ITEM,
+	sound =		"weapons/rifle/gunother/rifle_helpinghandextend.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Rifle_Desert.ItemPickupRetract",
+	channel = CHAN_ITEM,
+	sound =		"weapons/rifle/gunother/rifle_helpinghandretract.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Rifle_Desert.Deploy",
+	channel = CHAN_ITEM,
+	sound =		"weapons/rifle_desert/gunother/rifle_deploy_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Rifle_Desert.ClipIn",
+	channel = CHAN_ITEM,
+	sound =		"weapons/rifle_desert/gunother/rifle_clip_in_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Rifle_Desert.ClipOut",
+	channel = CHAN_ITEM,
+	sound =		"weapons/rifle_desert/gunother/rifle_clip_out_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Rifle_Desert.ClipLocked",
+	channel = CHAN_ITEM,
+	sound =		"weapons/rifle_desert/gunother/rifle_clip_locked_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Rifle_Desert.SlideBack",
+	channel = CHAN_STATIC,
+	sound =		"weapons/rifle_desert/gunother/rifle_slideback_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Rifle_Desert.SlideForward",
+	channel = CHAN_STATIC,
+	sound =		"weapons/rifle_desert/gunother/rifle_slideforward_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Rifle_Desert.PushButton",
+	channel = CHAN_ITEM,
+	sound =		"weapons/rifle_desert/gunother/rifle_ready_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Rifle_Desert.FullAutoButton",
+	channel = CHAN_ITEM,
+	sound =		"weapons/rifle_desert/gunother/rifle_fullautobutton_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Rifle_Desert.Fire",
+	channel = CHAN_WEAPON,
+	sound =		"weapons/rifle_desert/gunfire/rifle_fire_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Rifle_Desert.FireIncendiary",
+	channel = CHAN_WEAPON,
+	sound =		"weapons/rifle_desert/gunfire/rifle_fire_1_incendiary.wav"
+}
+)
+
+sound.Add(
+{
+	name = "AK47.Fire",
+	channel = CHAN_WEAPON,
+	sound =		"weapons/rifle_ak47/gunfire/rifle_fire_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "AK47.FireIncendiary",
+	channel = CHAN_WEAPON,
+	sound =		"weapons/rifle_ak47/gunfire/rifle_fire_1_incendiary.wav"
+}
+)
+
+sound.Add(
+{
+	name = "AK47.Deploy",
+	channel = CHAN_ITEM,
+	sound =		"weapons/rifle_ak47/gunother/rifle_deploy_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "AK47.ClipOut",
+	channel = CHAN_ITEM,
+	sound =		"weapons/rifle_ak47/gunother/rifle_clip_out_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "AK47.ClipIn",
+	channel = CHAN_ITEM,
+	sound =		"weapons/rifle_ak47/gunother/rifle_clip_in_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "AK47.ClipLocked",
+	channel = CHAN_ITEM,
+	sound =		"weapons/rifle_ak47/gunother/rifle_clip_locked_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "AK47.SlideBack",
+	channel = CHAN_ITEM,
+	sound =		"weapons/rifle_ak47/gunother/rifle_slideback.wav"
+}
+)
+
+sound.Add(
+{
+	name = "AK47.SlideForward",
+	channel = CHAN_STATIC,
+	sound =		"weapons/rifle_ak47/gunother/rifle_slideforward.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Ak47.HelpingHandExtend",
+	channel = CHAN_ITEM,
+	sound =		"weapons/rifle/gunother/rifle_helpinghandextend.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Ak47.HelpingHandRetract",
+	channel = CHAN_ITEM,
+	sound =		"weapons/rifle/gunother/rifle_helpinghandretract.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Ak47.ItemPickupExtend",
+	channel = CHAN_ITEM,
+	sound =		"weapons/rifle/gunother/rifle_helpinghandextend.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Ak47.ItemPickupRetract",
+	channel = CHAN_ITEM,
+	sound =		"weapons/rifle/gunother/rifle_helpinghandretract.wav"
+}
+)
+/*
+sound.Add(
+{
+	name = "M60.Fire",
+	channel	= CHAN_WEAPON,
+	sound =		"weapons/machinegun_m60/gunfire/machinegun_fire_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "M60.FireIncendiary",
+	channel = CHAN_WEAPON,
+	sound = 	"weapons/machinegun_m60/gunfire/machinegun_fire_1_incendiary.wav"
+}
+)
+*/
+/*
+sound.Add(
+{
+	name = "GrenadeLauncher.Fire",
+	channel = CHAN_WEAPON,
+	sound =		"weapons/grenade_launcher/grenadefire/grenade_launcher_fire_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "GrenadeLauncher.Explode",
+	channel = CHAN_WEAPON,
+	sound =		"weapons/grenade_launcher/grenadefire/grenade_launcher_explode_2.wav"
+}
+)
+
+sound.Add(
+{
+	name = "GrenadeLauncher.Deploy",
+	channel = CHAN_ITEM,
+	sound =		"weapons/grenade_launcher/grenadeother/grenade_launcher_deploy_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "GrenadeLauncher.LatchOpen",
+	channel = CHAN_ITEM,
+	sound =		"weapons/grenade_launcher/grenadeother/grenade_launcher_latchopen.wav"
+}
+)
+
+sound.Add(
+{
+	name = "GrenadeLauncher.ShellOut",
+	channel = CHAN_ITEM,
+	sound =		"weapons/grenade_launcher/grenadeother/grenade_launcher_shellout.wav"
+}
+)
+
+sound.Add(
+{
+	name = "GrenadeLauncher.ShellIn",
+	channel = CHAN_ITEM,
+	sound =		"weapons/grenade_launcher/grenadeother/grenade_launcher_shellin.wav"
+}
+)
+
+sound.Add(
+{
+	name = "GrenadeLauncher.ActionClosed",
+	channel = CHAN_ITEM,
+	sound =		"weapons/grenade_launcher/grenadeother/grenade_launcher_actionclosed.wav"
+}
+)
+
+sound.Add(
+{
+	name = "GrenadeLauncher.HelpingHandExtend",
+	channel = CHAN_ITEM,
+	sound =		"weapons/rifle/gunother/rifle_helpinghandextend.wav"
+}
+)
+
+sound.Add(
+{
+	name = "GrenadeLauncher.HelpingHandRetract",
+	channel = CHAN_ITEM,
+	sound =		"weapons/rifle/gunother/rifle_helpinghandretract.wav"
+}
+)
+
+sound.Add(
+{
+	name = "GrenadeLauncher.ItemPickupExtend",
+	channel = CHAN_ITEM,
+	sound =		"weapons/rifle/gunother/rifle_helpinghandextend.wav"
+}
+)
+
+sound.Add(
+{
+	name = "GrenadeLauncher.ItemPickupRetract",
+	channel = CHAN_ITEM,
+	sound =		"weapons/rifle/gunother/rifle_helpinghandretract.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Chainsaw.Idle",
+	channel = CHAN_ITEM,
+	sound =		"weapons/chainsaw/chainsaw_idle_lp_01.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Chainsaw.FullThrottle",
+	channel = CHAN_WEAPON,
+	sound =		"weapons/chainsaw/chainsaw_high_speed_lp_01.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Chainsaw.Die",
+	channel = CHAN_WEAPON,
+	sound =		"weapons/chainsaw/chainsaw_die_01.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Chainsaw.Stop",
+	channel = CHAN_WEAPON,
+	sound =		"weapons/chainsaw/chainsaw_die_01.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Minigun.SpinUp",
+	channel = CHAN_WEAPON,
+	sound =		"weapons/minigun/gunother/minigun_wind_up.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Minigun.Fire",
+	channel = CHAN_WEAPON,
+	sound =		"weapons/minigun/gunfire/minigun_fire.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Minigun.SpinDown",
+	channel = CHAN_WEAPON,
+	sound =		"weapons/minigun/gunother/minigun_wind_down.wav"
+}
+)
+
+sound.Add(
+{
+	name = "CedaJar.Explode",
+	channel = CHAN_WEAPON,
+	sound =		"weapons/ceda_jar/ceda_jar_explode.wav"
+}
+)
+
+sound.Add(
+{
+	name = "CedaJar.HelpingHandExtend",
+	channel = CHAN_ITEM,
+	sound =		"weapons/molotov/molotov_helpinghandextend.wav"
+}
+)
+
+sound.Add(
+{
+	name = "CedaJar.HelpingHandRetract",
+	channel = CHAN_ITEM,
+	sound =		"weapons/molotov/molotov_helpinghandretract.wav"
+}
+)
+
+sound.Add(
+{
+	name = "CedaJar.ItemPickupExtend",
+	channel = CHAN_ITEM,
+	sound =		"weapons/molotov/molotov_helpinghandextend.wav"
+}
+)
+
+sound.Add(
+{
+	name = "CedaJar.ItemPickupRetract",
+	channel = CHAN_ITEM,
+	sound =		"weapons/molotov/molotov_helpinghandretract.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Adrenaline.HelpingHandRetract",
+	channel = CHAN_ITEM,
+	sound =		"weapons/molotov/molotov_helpinghandretract.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Adrenaline.HelpingHandExtend",
+	channel = CHAN_ITEM,
+	sound =		"weapons/molotov/molotov_helpinghandextend.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Adrenaline.ItemPickupRetract",
+	channel = CHAN_ITEM,
+	sound =		"weapons/molotov/molotov_helpinghandretract.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Adrenaline.ItemPickupExtend",
+	channel = CHAN_ITEM,
+	sound =		"weapons/molotov/molotov_helpinghandextend.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Adrenaline.Deploy",
+	channel = CHAN_ITEM,
+	sound =		"common/wpn_hudoff.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Adrenaline.CapOff",
+	channel = CHAN_ITEM,
+	sound =		"weapons/adrenaline/adrenaline_cap_off.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Adrenaline.NeedleOpen",
+	channel = CHAN_STATIC,
+	sound =		"weapons/adrenaline/adrenaline_needle_open.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Adrenaline.NeedleIn",
+	channel = CHAN_ITEM,
+	sound =		"weapons/adrenaline/adrenaline_needle_in.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Molotov.Throw",
+	channel = CHAN_ITEM,
+	sound =		"weapons/molotov/fire_ignite_2.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Molotov.Loop",
+	channel = CHAN_BODY,
+	sound =		"weapons/molotov/fire_loop_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Molotov.IdleLoop",
+	channel = CHAN_STATIC,
+	sound =		"weapons/molotov/fire_idle_loop_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Inferno.Start",
+	channel = CHAN_WEAPON,
+	sound =		"weapons/molotov/molotov_detonate_3.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Inferno.StartSweeten",
+	channel = CHAN_WEAPON,
+	sound =		"weapons/molotov/molotov_detonate_swt_01.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Inferno.FadeOut",
+	channel = CHAN_AUTO,
+	sound =		"weapons/molotov/fire_loop_fadeout_01.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Inferno.Loop",
+	channel = CHAN_BODY,
+	sound =		"weapons/molotov/fire_loop_1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Molotov.HelpingHandExtend",
+	channel = CHAN_ITEM,
+	sound =		"weapons/molotov/molotov_helpinghandextend.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Molotov.HelpingHandRetract",
+	channel = CHAN_ITEM,
+	sound =		"weapons/molotov/molotov_helpinghandretract.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Molotov.ItemPickupExtend",
+	channel = CHAN_ITEM,
+	sound =		"weapons/molotov/molotov_helpinghandextend.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Molotov.ItemPickupRetract",
+	channel = CHAN_ITEM,
+	sound =		"weapons/molotov/molotov_helpinghandretract.wav"
+}
+)
+
+sound.Add(
+{
+	name = "FireworksCrate.Start",
+	channel = CHAN_WEAPON,
+	sound =		"player/items/LOUD_firewerks_crate_explo_01.wav"
+}
+)
+
+sound.Add(
+{
+	name = "FireworksCrate.Stop",
+	channel = CHAN_WEAPON,
+	sound =		"common/null.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Weapon_Knife.HitWall",
+	channel = CHAN_WEAPON,
+	sound =		"weapons/knife/knife_hitwall1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "HEGrenade.Bounce",
+	channel = CHAN_VOICE,
+	sound =		"weapons/hegrenade/he_bounce-1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Default.ClipEmpty_Rifle",
+	channel = CHAN_WEAPON,
+	sound =		"weapons/ClipEmpty_Rifle.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Default.ClipEmpty_Pistol",
+	channel = CHAN_WEAPON,
+	sound =		"weapons/ClipEmpty_Pistol.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Default.Zoom",
+	channel = CHAN_ITEM,
+	sound =		"weapons/hunting_rifle/gunother/hunting_rifle_zoom.wav"
+}
+)
+
+sound.Add(
+{
+	name = "BaseGrenade.Explode",
+	channel = CHAN_WEAPON,
+	sound =		"weapons/hegrenade/explode3.wav"
+}
+)
+
+sound.Add(
+{
+	name = "BaseCombatWeapon.WeaponMaterialize",
+	channel = CHAN_WEAPON,
+	sound =		"items/suitchargeok1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Knife.StabHunter",
+	channel = CHAN_WEAPON,
+	sound =		"weapons/knife/knife_hitwall1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Knife.BreakTongue",
+	channel = CHAN_WEAPON,
+	sound =		"weapons/knife/knife_hitwall1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "BlindingFlash",
+	channel = CHAN_WEAPON,
+	sound =		"weapons/flash/flash01.wav"
+}
+)
+
+sound.Add(
+{
+	name = "PipeBomb.Bounce",
+	channel = CHAN_VOICE,
+	sound =		"weapons/hegrenade/he_bounce-1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "PipeBomb.HelpingHandExtend",
+	channel = CHAN_ITEM,
+	sound =		"weapons/molotov/molotov_helpinghandextend.wav"
+}
+)
+
+sound.Add(
+{
+	name = "PipeBomb.HelpingHandRetract",
+	channel = CHAN_ITEM,
+	sound =		"weapons/molotov/molotov_helpinghandretract.wav"
+}
+)
+
+sound.Add(
+{
+	name = "PipeBomb.ItemPickupExtend",
+	channel = CHAN_ITEM,
+	sound =		"weapons/molotov/molotov_helpinghandextend.wav"
+}
+)
+
+sound.Add(
+{
+	name = "PipeBomb.ItemPickupRetract",
+	channel = CHAN_ITEM,
+	sound =		"weapons/molotov/molotov_helpinghandretract.wav"
+}
+)
+*/
+
+sound.Add(
+{
+	name = "Melee.Hit",
+	channel = CHAN_WEAPON,
+	sound =		"player/survivor/hit/int/punch_boxing_facehit4.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Melee.HitWorld",
+	channel = CHAN_WEAPON,
+	sound =		"weapons/knife/knife_hitwall1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Melee.HitBody",
+	channel = CHAN_STATIC,
+	sound =		"player/survivor/hit/int/punch_boxing_facehit4.wav"
+}
+)
+
+/*
+sound.Add(
+{
+	name = "Axe.Break",
+	channel = CHAN_STATIC,
+	sound =		"weapons/axe/axe_break.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Axe.HelpingHandExtend",
+	channel = CHAN_ITEM,
+	sound =		"weapons/molotov/molotov_helpinghandextend.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Axe.HelpingHandRetract",
+	channel = CHAN_ITEM,
+	sound =		"weapons/molotov/molotov_helpinghandretract.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Axe.ItemPickupExtend",
+	channel = CHAN_ITEM,
+	sound =		"weapons/molotov/molotov_helpinghandextend.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Axe.ItemPickupRetract",
+	channel = CHAN_ITEM,
+	sound =		"weapons/molotov/molotov_helpinghandretract.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Pan.Break",
+	channel = CHAN_STATIC,
+	sound =		"weapons/pan/pan_break.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Pan.HelpingHandExtend",
+	channel = CHAN_ITEM,
+	sound =		"weapons/molotov/molotov_helpinghandextend.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Pan.HelpingHandRetract",
+	channel = CHAN_ITEM,
+	sound =		"weapons/molotov/molotov_helpinghandretract.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Pan.ItemPickupExtend",
+	channel = CHAN_ITEM,
+	sound =		"weapons/molotov/molotov_helpinghandextend.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Pan.ItemPickupRetract",
+	channel = CHAN_ITEM,
+	sound =		"weapons/molotov/molotov_helpinghandretract.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Machete.Break",
+	channel = CHAN_STATIC,
+	sound =		"weapons/pan/pan_break.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Machete.HelpingHandExtend",
+	channel = CHAN_ITEM,
+	sound =		"weapons/molotov/molotov_helpinghandextend.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Machete.HelpingHandRetract",
+	channel = CHAN_ITEM,
+	sound =		"weapons/molotov/molotov_helpinghandretract.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Machete.ItemPickupExtend",
+	channel = CHAN_ITEM,
+	sound =		"weapons/molotov/molotov_helpinghandextend.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Machete.ItemPickupRetract",
+	channel = CHAN_ITEM,
+	sound =		"weapons/molotov/molotov_helpinghandretract.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Katana.Break",
+	channel = CHAN_STATIC,
+	sound =		"weapons/pan/pan_break.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Katana.HelpingHandExtend",
+	channel = CHAN_ITEM,
+	sound =		"weapons/molotov/molotov_helpinghandextend.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Katana.HelpingHandRetract",
+	channel = CHAN_ITEM,
+	sound =		"weapons/molotov/molotov_helpinghandretract.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Katana.ItemPickupExtend",
+	channel = CHAN_ITEM,
+	sound =		"weapons/molotov/molotov_helpinghandextend.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Katana.ItemPickupRetract",
+	channel = CHAN_ITEM,
+	sound =		"weapons/molotov/molotov_helpinghandretract.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Guitar.Break",
+	channel = CHAN_STATIC,
+	sound =		"weapons/pan/pan_break.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Guitar.HelpingHandExtend",
+	channel = CHAN_ITEM,
+	sound =		"weapons/molotov/molotov_helpinghandextend.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Guitar.HelpingHandRetract",
+	channel = CHAN_ITEM,
+	sound =		"weapons/molotov/molotov_helpinghandretract.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Guitar.ItemPickupExtend",
+	channel = CHAN_ITEM,
+	sound =		"weapons/molotov/molotov_helpinghandextend.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Guitar.ItemPickupRetract",
+	channel = CHAN_ITEM,
+	sound =		"weapons/molotov/molotov_helpinghandretract.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Bat.Break",
+	channel = CHAN_STATIC,
+	sound =		"weapons/pan/pan_break.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Bat.HelpingHandExtend",
+	channel = CHAN_ITEM,
+	sound =		"weapons/molotov/molotov_helpinghandextend.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Bat.HelpingHandRetract",
+	channel = CHAN_ITEM,
+	sound =		"weapons/molotov/molotov_helpinghandretract.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Bat.ItemPickupExtend",
+	channel = CHAN_ITEM,
+	sound =		"weapons/molotov/molotov_helpinghandextend.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Bat.ItemPickupRetract",
+	channel = CHAN_ITEM,
+	sound =		"weapons/molotov/molotov_helpinghandretract.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Tonfa.Break",
+	channel = CHAN_STATIC,
+	sound =		"weapons/pan/pan_break.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Tonfa.HelpingHandExtend",
+	channel = CHAN_ITEM,
+	sound =		"weapons/molotov/molotov_helpinghandextend.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Tonfa.HelpingHandRetract",
+	channel = CHAN_ITEM,
+	sound =		"weapons/molotov/molotov_helpinghandretract.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Tonfa.ItemPickupExtend",
+	channel = CHAN_ITEM,
+	sound =		"weapons/molotov/molotov_helpinghandextend.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Tonfa.ItemPickupRetract",
+	channel = CHAN_ITEM,
+	sound =		"weapons/molotov/molotov_helpinghandretract.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Defibrillator.Use",
+	channel = CHAN_WEAPON,
+	sound =		"weapons/defibrillator/defibrillator_use.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Defibrillator.UseStart",
+	channel = CHAN_ITEM,
+	sound =		"weapons/defibrillator/defibrillator_use_start.wav"
+}
+)
+
+sound.Add(
+{
+	name = "CS_Default.Zoom",
+	channel = CHAN_ITEM,
+	sound =		"weapons/awp/gunother/zoom.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Weapon_AWP.Single",
+	channel = CHAN_WEAPON,
+	sound =		"weapons/awp/gunfire/awp1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Weapon_AWP.Clipin",
+	channel = CHAN_ITEM,
+	sound =		"weapons/awp/gunother/awp_clipin.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Weapon_AWP.Clipout",
+	channel = CHAN_ITEM,
+	sound =		"weapons/awp/gunother/awp_clipout.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Weapon_AWP.Bolt",
+	channel = CHAN_ITEM,
+	sound =		"weapons/awp/gunother/awp_bolt.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Weapon_AWP.Deploy",
+	channel = CHAN_ITEM,
+	sound =		"weapons/awp/gunother/awp_deploy.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Weapon_AWP.BoltForward",
+	channel = CHAN_ITEM,
+	sound =		"weapons/awp/gunother/awp_bolt_forward.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Weapon_Scout.Single",
+	channel = CHAN_WEAPON,
+	sound =		"weapons/scout/gunfire/scout_fire-1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Weapon_Scout.BoltBack",
+	channel = CHAN_ITEM,
+	sound =		"weapons/scout/gunother/scout_bolt.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Weapon_Scout.BoltForward",
+	channel = CHAN_ITEM,
+	sound =		"weapons/scout/gunother/scout_bolt_forward.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Weapon_Scout.Clipout",
+	channel = CHAN_ITEM,
+	sound =		"weapons/scout/gunother/scout_clipout.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Weapon_Scout.Clipin",
+	channel = CHAN_ITEM,
+	sound =		"weapons/scout/gunother/scout_clipin.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Weapon_Scout.ClipLocked",
+	channel = CHAN_ITEM,
+	sound =		"weapons/scout/gunother/scout_clipin_locked.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Weapon_MP5Navy.Single",
+	channel = CHAN_WEAPON,
+	sound =		"weapons/mp5Navy/gunfire/mp5-1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Weapon_MP5Navy.Clipout",
+	channel = CHAN_ITEM,
+	sound =		"weapons/mp5navy/gunother/mp5_clipout.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Weapon_MP5Navy.Clipin",
+	channel = CHAN_ITEM,
+	sound =		"weapons/mp5navy/gunother/mp5_clipin.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Weapon_MP5Navy.Slideback",
+	channel = CHAN_ITEM,
+	sound =		"weapons/mp5navy/gunother/mp5_slideback.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Weapon_SG552.Single",
+	channel = CHAN_WEAPON,
+	sound =		"weapons/sg552/gunfire/sg552-1.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Weapon_SG552.Clipout",
+	channel = CHAN_ITEM,
+	sound =		"weapons/sg552/gunother/sg552_clipout.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Weapon_SG552.Clipin",
+	channel = CHAN_ITEM,
+	sound =		"weapons/sg552/gunother/sg552_clipin.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Weapon_SG552.BoltpullBack",
+	channel = CHAN_STATIC,
+	sound =		"weapons/sg552/gunother/sg552_boltpull.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Weapon_SG552.BoltpullForward",
+	channel = CHAN_STATIC,
+	sound =		"weapons/sg552/gunother/sg552_boltpullforward.wav"
+}
+)
+
+sound.Add(
+{
+	name = "Weapon_Knife.Deploy",
+	channel = CHAN_WEAPON,
+	sound =		"weapons/knife/knife_deploy.wav"
+}
+)
+*/
