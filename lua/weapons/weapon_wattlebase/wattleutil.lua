@@ -58,7 +58,7 @@ end
 
 /*SWEP stuff-----------------------------------*/
 function SWEP:IsSprinting()
-	ply = self.Owner
+	local ply = self.Owner
 	
 	if(!ply:IsPlayer()) then 
 		return false
@@ -76,12 +76,12 @@ function SWEP:IsSprinting()
 end
 
 function SWEP:IsAiming()
-	ply = self.Owner
+	local ply = self.Owner
 	return ply:KeyDown(IN_ATTACK2) && self.UseIrons && !ply:KeyDown(IN_USE) && !self:IsSprinting()// && (CurTime() > self:GetFRT())
 end
 
 function SWEP:IsCrouching()
-	ply = self.Owner
+	local ply = self.Owner
 	return ply:KeyDown(IN_DUCK) && !self:IsSprinting() && ply:OnGround()
 end
 

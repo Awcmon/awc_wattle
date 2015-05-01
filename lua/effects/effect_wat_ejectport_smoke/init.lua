@@ -32,6 +32,8 @@ function EFFECT:Think()
 	
 	local attach = viewmodel:GetAttachment(2)
 	
+	if(!IsValid(attach)) then return end
+	
 	/*
 	if(!self.PlayerEnt) then return end
 	if(!IsValid(self.PlayerEnt:GetViewModel())) then return end

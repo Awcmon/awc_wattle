@@ -166,6 +166,8 @@ function SWEP:WatInitialize()
 end
 
 function SWEP:WatDeploy()
+	self.SetOwner(self:GetOwner())
+	self.Owner = self:GetOwner()
 	if(IsValid(self.Owner)) then
 		self:SetFAT(CurTime() + self.Owner:GetViewModel():SequenceDuration())
 		self.FAT = CurTime() + self.Owner:GetViewModel():SequenceDuration()
@@ -186,7 +188,14 @@ function SWEP:WatOnRemove()
 end
 
 function SWEP:WatThink()
-	
+	local ply = self.Owner
+	if(!IsValid(ply)) then 
+		print("Player is not valid!") 
+		print(ply) 
+		self.Owner = self:GetOwner() 
+		ply = self.Owner
+		return false 
+	end
 end
 
 function SWEP:WatDrawHUD()
@@ -239,7 +248,7 @@ function SWEP:WatDrawCrosshair(alpha)
 end
 
 function SWEP:DrawScope()
-	ply = self.Owner
+	local ply = self.Owner
 	
 	local sm = 1.1 - (math.Clamp(CurTime() + (ply:Ping()/1000) - self:GetLST(), 0, 0.2)*0.5)
 
@@ -363,8 +372,6 @@ function SWEP:Holster()
 end
 
 function SWEP:Deploy()
-	self.SetOwner(self:GetOwner())
-	self.Owner = self:GetOwner()
 	self:WatDeploy()
 	return true
 end
@@ -374,14 +381,6 @@ function SWEP:Reload()
 end
 
 function SWEP:Think()
-	ply = self.Owner
-	if(!IsValid(ply)) then 
-		print("Player is not valid!") 
-		print(ply) 
-		self.Owner = self:GetOwner() 
-		ply = self.Owner
-		return false 
-	end
 	self:WatThink()
 	self:WatInterruptedReloadThink()
 end

@@ -51,7 +51,7 @@ SWEP.AccurateCrosshair 			= false
 ---------
 SWEP.HoldType = "ar2"
 
-SWEP.Primary.Damage 			= 40
+SWEP.Primary.Damage 			= 36
 SWEP.Primary.DamageFalloff		= 0.001
 SWEP.Primary.Sound				= Sound("Weapon_FAMAS.Single")
 SWEP.Primary.NumShots			= 1
@@ -240,7 +240,8 @@ function SWEP:ShootBullet()
 	self:SetLST( CurTime() )
 end
 
-function SWEP:WatThink()
+function SWEP:Think()
+	self:WatThink()
 	if(!IsValid(self)) then return end
 	
 	if(CurTime() > self:GetEBT()) then
