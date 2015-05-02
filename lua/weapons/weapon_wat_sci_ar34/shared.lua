@@ -57,6 +57,7 @@ SWEP.Primary.Sound				= Sound("Weapon_FAMAS.Single")
 SWEP.Primary.NumShots			= 1
 SWEP.Primary.Delay				= 60/320
 SWEP.Primary.Cone				= 0.001
+SWEP.Primary.ClumpCone			= 0
 SWEP.Primary.Tracer				= 0
 SWEP.Primary.TracerName			= "Tracer"
 SWEP.Primary.MuzzleEffects		= { "effect_wat_muzzle_flash3prong", "effect_wat_muzzle_flash", "effect_wat_muzzle_smoke", "effect_wat_muzzle_sparks" }
@@ -230,7 +231,9 @@ function SWEP:ShootBullet()
 
 	self:Recoil()
 	
-	self:ShootEffects()
+	if(IsFirstTimePredicted()) then
+		self:ShootEffects()
+	end
 	
 	if(self.SetFATOnShoot) then
 		self:SetFAT(CurTime() + self.Owner:GetViewModel():SequenceDuration())
@@ -242,6 +245,7 @@ end
 
 function SWEP:Think()
 	self:WatThink()
+	self:WatInterruptedReloadThink()
 	if(!IsValid(self)) then return end
 	
 	if(CurTime() > self:GetEBT()) then
