@@ -319,8 +319,14 @@ function SWEP:WatShootBullet( dmg, recoil, numbul, cone )
 	bullet.Callback = function(attacker, trace, dmginfo)
 		local distance = trace.StartPos:Distance(trace.HitPos)
 		local damage = self.Primary.Damage-math.sqrt(self.Primary.DamageFalloff*distance)
-		print("Distance: "..trace.StartPos:Distance(trace.HitPos) )
-		print("Damage: "..damage)
+		/*
+		if ((CLIENT) || game.SinglePlayer()) then
+			if(WattleCVar["wat_cl_developer"]) then
+				print("Distance: "..trace.StartPos:Distance(trace.HitPos) )
+				print("Damage: "..damage)
+			end
+		end
+		*/
 		dmginfo:SetDamage(damage)
 	end
 	

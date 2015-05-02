@@ -10,6 +10,27 @@ include("wattleutil.lua")
 AddCSLuaFile( "wattlecalcview.lua" )
 include("wattlecalcview.lua")
 
+/*
+local WattleClientConVars = { "wat_cl_developer" }
+WattleCVar = {}
+
+if (CLIENT) then
+	for k, v in pairs(WattleClientConVars) do
+		CreateClientConVar( v, "0", true, false )
+		WattleCVar[v] = GetConVar(v):GetBool()
+	end
+end
+if (CLIENT) then
+	concommand.Add( "wat_update_cvars", function( ply )
+		for k, v in pairs(WattleClientConVars) do
+			WattleCVar[v] = GetConVar(v):GetBool()
+			print(WattleCVar[v])
+			print("Rip")
+		end
+	end,
+	nil, nil, FCVAR_CLIENTCMD_CAN_EXECUTE )
+end
+*/
 
 SWEP.Wattle 					= true
 ---------
