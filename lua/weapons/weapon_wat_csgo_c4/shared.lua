@@ -95,8 +95,8 @@ end
 function SWEP:CreateBomb()
 	if self:CanPlant() and SERVER then
 		local trace = self:GetOwner():GetEyeTrace()
-		--local c4 = ents.Create("ent_nop_c4")
-		local c4 = ents.Create("ent_sf_c4")
+		local c4 = ents.Create("ent_nop_c4")
+		--local c4 = ents.Create("ent_sf_c4")
 		c4:SetPos(trace.HitPos + trace.HitNormal)
 		trace.HitNormal.z = trace.HitNormal.z * -1
 		c4:SetAngles( (trace.HitNormal):Angle() - Angle(90,180,0) )
