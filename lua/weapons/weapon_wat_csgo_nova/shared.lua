@@ -95,7 +95,7 @@ SWEP.SwayAngDiv					= 15
 SWEP.UseIrons					= false
 SWEP.UseScope					= false
 SWEP.Zoom 						= 20
-SWEP.SetFATOnShoot 				= false
+SWEP.SetFATOnShoot 				= true
 
 SWEP.DTFloats 					= {}
 SWEP.DTBools 					= {}
