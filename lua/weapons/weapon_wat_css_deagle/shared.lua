@@ -2,7 +2,7 @@
 AddCSLuaFile( "shared.lua" )
 
 ---------
-SWEP.PrintName 					= "USP"
+SWEP.PrintName 					= "Desert Eagle"
 SWEP.Category 					= "Wattle CS:S"
 SWEP.Base 						= "weapon_wattlebase_bullet"
 SWEP.Spawnable 					= true
@@ -14,8 +14,8 @@ SWEP.Contact 					= ""
 SWEP.Purpose 					= ""
 SWEP.Instructions 				= ""
 
-SWEP.ViewModel					= "models/weapons/cstrike/c_pist_usp.mdl"
-SWEP.WorldModel					= "models/weapons/w_pist_usp.mdl"
+SWEP.ViewModel					= "models/weapons/cstrike/c_pist_deagle.mdl"
+SWEP.WorldModel					= "models/weapons/w_pist_deagle.mdl"
 SWEP.ViewModelFlip 				= false
 SWEP.ViewModelFOV 				= 57
 
@@ -36,9 +36,9 @@ SWEP.SlotPos 					= 1
 SWEP.CSMuzzleFlashes 			= true
 SWEP.CSMuzzleX 					= false
 
-SWEP.Primary.ClipSize			= 12
-SWEP.Primary.DefaultClip 		= 72
-SWEP.Primary.Ammo 				= "pistol"
+SWEP.Primary.ClipSize			= 7
+SWEP.Primary.DefaultClip 		= 42
+SWEP.Primary.Ammo 				= "357"
 SWEP.Primary.Automatic 			= false
 
 SWEP.Secondary.ClipSize 		= -1
@@ -51,20 +51,20 @@ SWEP.AccurateCrosshair 			= false
 ---------
 SWEP.HoldType = "pistol"
 
-SWEP.Primary.Damage 			= 30
+SWEP.Primary.Damage 			= 55
 SWEP.Primary.DamageFalloff		= 0.0005
-SWEP.Primary.Sound				= Sound("Weapon_USP.Single")
+SWEP.Primary.Sound				= Sound("Weapon_Deagle.Single")
 SWEP.Primary.NumShots			= 1
-SWEP.Primary.Delay				= 60/450
+SWEP.Primary.Delay				= 60/267
 SWEP.Primary.Cone				= 0.0015
 SWEP.Primary.ClumpCone			= 0
 SWEP.Primary.Tracer				= 0
 SWEP.Primary.TracerName			= "Tracer"
 SWEP.Primary.MuzzleEffects		= { "effect_wat_muzzle_flash", "effect_wat_muzzle_smoke", "effect_wat_muzzle_sparks" }
 
-SWEP.RecoilPitchAdd = 1.2
-SWEP.RecoilPitchMul = 0.2
-SWEP.RecoilYawAdd = 0.5
+SWEP.RecoilPitchAdd = 5
+SWEP.RecoilPitchMul = 0.5
+SWEP.RecoilYawAdd = 3
 SWEP.RecoilYawMul = 0.05
 
 SWEP.SpreadConeAdd 				= 0.005
@@ -72,9 +72,9 @@ SWEP.SpreadRecoveryTime 		= 0.8
 SWEP.SpreadConeAddCrouch 		= 0.0015
 SWEP.SpreadRecoveryTimeCrouch 	= 0.2
 
-SWEP.SpreadModVel 				= 0
+SWEP.SpreadModVel 				= 0.005
 SWEP.SpreadModVelMax 			= 0
-SWEP.SpreadModInAir				= 0.005
+SWEP.SpreadModInAir				= 0.015
 SWEP.SpreadModCrouch 			= 0.0002
 
 SWEP.ReloadClipInTime			= 1.6
@@ -110,70 +110,6 @@ SWEP.ViewModelBoneMods = {
 SWEP.VElements = {}
 SWEP.WElements = {}
 
-
-function SWEP:Deploy()
-	self:WatDeploy()
-	if(self:GetSilenced()) then
-		self.Weapon:SendWeaponAnim( ACT_VM_DRAW_SILENCED )
-	else
-		self.Weapon:SendWeaponAnim( ACT_VM_DRAW )
-	end
-	return true
-end
-
-function SWEP:Reload()
-	if(self:GetSilenced()) then
-		self:WatReload(ACT_VM_RELOAD_SILENCED)
-	else
-		self:WatReload(ACT_VM_RELOAD)
-	end
-end
-
-function SWEP:SecondaryAttack()
-	
-//	if ( !self:CanSecondaryAttack() ) then return end
-	if(CurTime() < self:GetNextSecondaryFire()) then return end
-	
-	self:SetNextSecondaryFire( CurTime() + 3 )
-	self:SetNextPrimaryFire( CurTime() + 3 )
-	self:SetFAT(CurTime() + 3)
-	self.FAT = CurTime() + 3
-	
-	if(!self:GetSilenced()) then
-		self:SendWeaponAnim(ACT_VM_ATTACH_SILENCER)
-		self.Primary.MuzzleEffects		= { "effect_wat_muzzle_smoke" }
-		self.Primary.Sound = "Weapon_USP.SilencedShot"
-//		self.ViewModelBoneMods["v_weapon.USP_Silencer"].scale = Vector(1, 1, 1)
-		self:SetSilenced(true)
-//		self.WorldModel = "models/weapons/w_pist_usp_silencer.mdl" 
-//		self.Weapon:SetModel( "models/weapons/w_pist_usp_silencer.mdl" )
-	else
-		self:SendWeaponAnim(ACT_VM_DETACH_SILENCER)
-		self.Primary.MuzzleEffects		= { "effect_wat_muzzle_flash", "effect_wat_muzzle_smoke", "effect_wat_muzzle_sparks" }
-		self.Primary.Sound = "Weapon_USP.Single"
-//		self.ViewModelBoneMods["v_weapon.USP_Silencer"].scale = Vector(0.009, 0.009, 0.009)
-		self:SetSilenced(false)
-//		self.WorldModel = "models/weapons/w_pist_usp.mdl"
-//		self.Weapon:SetModel( "models/weapons/w_pist_usp.mdl" )
-	end
-end
-
-function SWEP:ShootEffects()
-
-	if(self:GetSilenced()) then
-		self.Weapon:SendWeaponAnim( ACT_VM_PRIMARYATTACK_SILENCED )
-	else
-		self.Weapon:SendWeaponAnim( ACT_VM_PRIMARYATTACK )
-	end
-	self.Owner:SetAnimation( PLAYER_ATTACK1 )
-	
-	self.Weapon:EmitSound( self.Primary.Sound )
-		
-	if(!IsFirstTimePredicted()) then return end
-	self:WatMuzzleEffects()
-end
-
-
 function SWEP:WatCalcViewThink( ply, origin, angles, fov )
 	
 	if( (CurTime() < self.SIT + 5) || (self:IsSprinting() && !self:GetReloading() && (CurTime() + (ply:Ping()/1000) > self:GetFAT()) ) ) && (CurTime() > self:GetNextSecondaryFire()) then
@@ -185,14 +121,4 @@ function SWEP:WatCalcViewThink( ply, origin, angles, fov )
 		self.ViewModelBoneMods["ValveBiped.Bip01_L_Forearm"].pos = SmoothApproachVector(self.ViewModelBoneMods["ValveBiped.Bip01_L_Forearm"].pos, Vector(0,0,0), FrameTime()*10)
 		self.ViewModelBoneMods["ValveBiped.Bip01_L_Hand"].pos = SmoothApproachVector(self.ViewModelBoneMods["ValveBiped.Bip01_L_Hand"].pos, Vector(0,0,0), FrameTime()*10)
 	end
-
-	if( !self:GetSilenced() && (CurTime() > self:GetNextSecondaryFire()) ) then
-		self.ViewModelBoneMods["v_weapon.USP_Silencer"].scale = Vector(0.009, 0.009, 0.009)
-	else
-		self.ViewModelBoneMods["v_weapon.USP_Silencer"].scale = Vector(1, 1, 1)
-	end
 end
-
-//Original Sprint
-//Vector(3, -18.5, -15)
-

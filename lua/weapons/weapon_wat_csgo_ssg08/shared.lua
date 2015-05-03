@@ -2,7 +2,7 @@
 AddCSLuaFile( "shared.lua" )
 
 ---------
-SWEP.PrintName 					= "AK-47"
+SWEP.PrintName 					= "SSG-08"
 SWEP.Category 					= "Wattle CS:GO"
 SWEP.Base 						= "weapon_wattlebase_bullet"
 SWEP.Spawnable 					= true
@@ -14,8 +14,8 @@ SWEP.Contact 					= ""
 SWEP.Purpose 					= ""
 SWEP.Instructions 				= ""
 
-SWEP.ViewModel					= "models/weapons/c_csgo_ak47.mdl"
-SWEP.WorldModel					= "models/weapons/w_rif_ak47.mdl"
+SWEP.ViewModel					= "models/weapons/c_csgo_ssg08.mdl"
+SWEP.WorldModel					= "models/weapons/w_snip_scout.mdl"
 SWEP.ViewModelFlip 				= false
 SWEP.ViewModelFOV 				= 57
 
@@ -36,8 +36,8 @@ SWEP.SlotPos 					= 1
 SWEP.CSMuzzleFlashes 			= true
 SWEP.CSMuzzleX 					= false
 
-SWEP.Primary.ClipSize			= 30
-SWEP.Primary.DefaultClip 		= 120
+SWEP.Primary.ClipSize			= 10
+SWEP.Primary.DefaultClip 		= 100
 SWEP.Primary.Ammo 				= "smg1"
 SWEP.Primary.Automatic 			= true
 
@@ -51,12 +51,12 @@ SWEP.AccurateCrosshair 			= false
 ---------
 SWEP.HoldType = "ar2"
 
-SWEP.Primary.Damage 			= 40
-SWEP.Primary.DamageFalloff		= 0.0015
-SWEP.Primary.Sound				= Sound("Weapon_cak47.Single")
+SWEP.Primary.Damage 			= 78
+SWEP.Primary.DamageFalloff		= 0.00025
+SWEP.Primary.Sound				= Sound("csgo/ssg08/ssg08-1.wav")
 SWEP.Primary.NumShots			= 1
-SWEP.Primary.Delay				= 60/600
-SWEP.Primary.Cone				= 0.0015
+SWEP.Primary.Delay				= 60/50
+SWEP.Primary.Cone				= 0.0005
 SWEP.Primary.ClumpCone			= 0
 SWEP.Primary.Tracer				= 0
 SWEP.Primary.TracerName			= "Tracer"
@@ -77,25 +77,25 @@ SWEP.SpreadModVelMax 			= 0.0002
 SWEP.SpreadModInAir				= 0.075
 SWEP.SpreadModCrouch 			= 0.0002
 
-SWEP.ReloadClipInTime			= 1.2
+SWEP.ReloadClipInTime			= 2.1
 
-SWEP.VMPosOffset 				= Vector(1,0,-1)
+SWEP.VMPosOffset 				= Vector(0,-4,-1)
 SWEP.VMAngOffset				= Angle(0,0,0)
-SWEP.SprintPos	 				= { Vector(0,-3,-3.5), Vector(0.5,-2.5,-3), Vector(0.5,-2.5,-3) }
+SWEP.SprintPos	 				= { Vector(0.5,-2.5-4,-4), Vector(0.5,-2.5-4,-4), Vector(0.5,-2.5-4,-4) }
 SWEP.SprintAng					= { Angle(-12,32,-35), Angle(-6,35,-35), Angle(-12,38,-35) }
-SWEP.WalkPos 					= { Vector(-0.5,0,0), Vector(0,0,0.5), Vector(0.5,0,0) }
-SWEP.WalkAng					= { Angle(-0.5,-0.5,-1), Angle(0.5,0,0), Angle(-0.5,0.5,0.5) }
-SWEP.InspectPos 				= { Vector(8.883, 0.089, 0), Vector(-10.7, -1.153, 3.655) }
+SWEP.WalkPos 					= { Vector(-0.5,0,-1)*0.5, Vector(0,-1,1)*0.5, Vector(0.5,0,-1)*0.5 }
+SWEP.WalkAng					= { Angle(-0.5,1,-2)*0.5, Angle(0.5,0,2)*0.5, Angle(-0.5,-1,3)*0.5 }
+SWEP.InspectPos 				= { Vector(8.883, -4, 0), Vector(-10.7, -1.153, 3.655) }
 SWEP.InspectAng 				= { Angle(5.678, 38.159, 17.649), Angle(-7.246, -8.81, -23.761) }
 SWEP.IronSightsPos 				= Vector(-4.724, -7.507, 0.796)
 SWEP.IronSightsAng 				= Angle(-0.343, 0.043, 0)
 SWEP.SwayPosDiv					= 30
 SWEP.SwayAngDiv					= 13
 
-SWEP.UseIrons					= false
-SWEP.UseScope					= false
-SWEP.Zoom 						= 20
-SWEP.SetFATOnShoot 				= false
+SWEP.UseIrons					= true
+SWEP.UseScope					= true
+SWEP.Zoom 						= 60
+SWEP.SetFATOnShoot 				= true
 
 SWEP.DTFloats 					= {}
 SWEP.DTBools 					= {}
@@ -104,3 +104,16 @@ SWEP.DTInts 					= {}
 SWEP.ViewModelBoneMods = {}
 SWEP.VElements = {}
 SWEP.WElements = {}
+
+function SWEP:DrawScopeReticule(x, y)
+	surface.SetDrawColor( 0, 0, 0, 255 )
+	surface.DrawLine( x + 1000, y, x, y )
+	surface.DrawLine( x - 1000, y, x, y )
+//	surface.DrawLine( x, y - 1000, x, y )
+//	surface.DrawLine( x, y + 1000, x, y )
+
+	for i = -math.Round(ScrW()/200,0), math.Round(ScrW()/200,0) do
+		surface.DrawLine( x+i, y + ScrW()/2, x, y )
+	end
+	
+end

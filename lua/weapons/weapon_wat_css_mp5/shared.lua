@@ -57,6 +57,7 @@ SWEP.Primary.Sound				= Sound("Weapon_MP5Navy.Single")
 SWEP.Primary.NumShots			= 1
 SWEP.Primary.Delay				= 60/800
 SWEP.Primary.Cone				= 0.003
+SWEP.Primary.ClumpCone			= 0
 SWEP.Primary.Tracer				= 0
 SWEP.Primary.TracerName			= "Tracer"
 SWEP.Primary.MuzzleEffects		= { "effect_wat_muzzle_flash", "effect_wat_muzzle_smoke", "effect_wat_muzzle_sparks" }

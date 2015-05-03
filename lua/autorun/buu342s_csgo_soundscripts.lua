@@ -1423,6 +1423,18 @@ sound.Add(soundData)
 //SSG-08
 ////
 local soundData = {
+    name 		= "Weapon_Cssg08.Single" ,
+    channel 	= CHAN_WEAPON,
+    volume 		= 1,
+    soundlevel 	= 80,
+    pitchstart 	= 100,
+    pitchend 	= 100,
+    sound 		= "csgo/ssg08/ssg08-1.wav"
+}
+
+sound.Add(soundData)
+
+local soundData = {
     name 		= "Weapon_Cssg08.Draw" ,
     channel 	= CHAN_ITEM,
     volume 		= 1,

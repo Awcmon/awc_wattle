@@ -57,6 +57,7 @@ SWEP.Primary.Sound				= Sound("Weapon_cm4a1.Silenced")
 SWEP.Primary.NumShots			= 1
 SWEP.Primary.Delay				= 60/750
 SWEP.Primary.Cone				= 0.0015
+SWEP.Primary.ClumpCone			= 0
 SWEP.Primary.Tracer				= 0
 SWEP.Primary.TracerName			= "Tracer"
 SWEP.Primary.MuzzleEffects		= { "effect_wat_muzzle_smoke" }

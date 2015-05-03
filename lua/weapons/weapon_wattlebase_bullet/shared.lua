@@ -57,6 +57,7 @@ SWEP.Primary.Sound				= ""
 SWEP.Primary.NumShots			= 1
 SWEP.Primary.Delay				= 1
 SWEP.Primary.Cone				= 0.01
+SWEP.Primary.ClumpCone			= 0
 SWEP.Primary.Tracer				= 0
 SWEP.Primary.TracerName			= "Tracer"
 SWEP.Primary.MuzzleEffects		= { "effect_wat_muzzle_flash", "effect_wat_muzzle_smoke", "effect_wat_muzzle_sparks" }
@@ -104,6 +105,7 @@ SWEP.ViewModelBoneMods = {}
 SWEP.VElements = {}
 SWEP.WElements = {}
 
+--[[
 /*old
 SWEP.RecoilPitchAdditive = 0.5
 SWEP.RecoilVPPitchMul = 0.5
@@ -142,10 +144,11 @@ SWEP.RecoilYawPitchMul = 1
 SWEP.RecoilYawAdditiveMax = 1
 SWEP.RecoilYawMax = 6
 */
-
+]]--
 //For clientside only :v
 function SWEP:CalculateCone()
 	local recTime
+	local ply = self.Owner
 	if(!self:IsCrouching()) then
 		recTime = self.SpreadRecoveryTime
 	else
@@ -158,7 +161,7 @@ end
 
 local DefaultSpeed = 250
 function SWEP:SpreadMovementAdditive()
-	ply = self.Owner
+	local ply = self.Owner
 	if(!IsValid(ply)) then return end
 	if(!ply:IsPlayer()) then return 0 end
 	if(ply:InVehicle()) then return 0 end
@@ -236,8 +239,10 @@ function SWEP:PrimaryAttack()
 	self:ShootEffects()
 	
 	if(self.SetFATOnShoot) then
-		self:SetFAT(CurTime() + self.Owner:GetViewModel():SequenceDuration())
-		self.FAT = CurTime() + self.Owner:GetViewModel():SequenceDuration()
+		//self:SetFAT(CurTime() + self.Owner:GetViewModel():SequenceDuration())
+		//self.FAT = CurTime() + self.Owner:GetViewModel():SequenceDuration()\
+		self:SetFAT(CurTime() + self.Primary.Delay)
+		self.FAT = CurTime() + self.Primary.Delay
 	end
 	
 	self:SetLST( CurTime() )
@@ -314,8 +319,14 @@ function SWEP:WatShootBullet( dmg, recoil, numbul, cone )
 	bullet.Callback = function(attacker, trace, dmginfo)
 		local distance = trace.StartPos:Distance(trace.HitPos)
 		local damage = self.Primary.Damage-math.sqrt(self.Primary.DamageFalloff*distance)
-//		print("Distance: "..trace.StartPos:Distance(trace.HitPos) )
-//		print("Damage: "..damage)
+		/*
+		if ((CLIENT) || game.SinglePlayer()) then
+			if(WattleCVar["wat_cl_developer"]) then
+				print("Distance: "..trace.StartPos:Distance(trace.HitPos) )
+				print("Damage: "..damage)
+			end
+		end
+		*/
 		dmginfo:SetDamage(damage)
 	end
 	
