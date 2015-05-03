@@ -106,14 +106,73 @@ SWEP.VElements = {}
 SWEP.WElements = {}
 
 function SWEP:DrawScopeReticule(x, y)
-	surface.SetDrawColor( 0, 0, 0, 255 )
-	surface.DrawLine( x + 1000, y, x, y )
-	surface.DrawLine( x - 1000, y, x, y )
-//	surface.DrawLine( x, y - 1000, x, y )
-//	surface.DrawLine( x, y + 1000, x, y )
+	local wr = ScrW()/1280
+	local hr = ScrH()/960
+	
+	local clen = 16*wr		//Crosshair length
+	local gap = 16*wr
+	local lgap = 360*wr
 
-	for i = -math.Round(ScrW()/200,0), math.Round(ScrW()/200,0) do
-		surface.DrawLine( x+i, y + ScrW()/2, x, y )
+	//Crosshair
+	surface.SetDrawColor( 255, 0, 0, 255 )
+	surface.DrawLine( x + clen, y, x - clen, y )
+	surface.DrawLine( x, y + clen, x, y - clen )
+	
+	//Fancy lines
+	surface.SetDrawColor( 0, 0, 0, 255 )
+	ADrawLine( x, y + ScrW(), x, y + (clen+gap), 1, 150 )
+	ADrawLine( x, y - ScrW(), x, y - (clen+gap), 1, 150 )
+	ADrawLine( x+ ScrW(), y, x + (clen+gap), y, 1, 150 )
+	ADrawLine( x- ScrW(), y, x - (clen+gap), y, 1, 150 )
+	//Draw thick side lines
+	ADrawLine( x, y - ScrW(), x, y - (clen+lgap), 10, 0 )
+	ADrawLine( x+ ScrW(), y, x + (clen+lgap), y, 10, 0 )
+	ADrawLine( x- ScrW(), y, x - (clen+lgap), y, 10, 0 )
+	//Right side windage stuff
+	for i = 0, 6 do
+		local height
+		if(i%2 == 1) then
+			height = 10*wr
+		else
+			height = 15*wr
+		end
+		local disp = ((clen+gap)+(gap*i*3))	//displacement
+		ADrawLine( x + disp, y - height, x + disp, y + height, 1, 175)
 	end
 	
+	//Left side windage stuff
+	for i = 0, 6 do
+		local height
+		if(i%2 == 1) then
+			height = 10*wr
+		else
+			height = 15*wr
+		end
+		local disp = -((clen+gap)+(gap*i*3))	//displacement
+		ADrawLine( x + disp, y - height, x + disp, y + height, 1, 175)
+	end
+	
+	//Top windage stuff
+	for i = 0, 6 do
+		local height
+		if(i%2 == 1) then
+			height = 10*wr
+		else
+			height = 15*wr
+		end
+		local disp = -((clen+gap)+(gap*i*3))	//displacement
+		ADrawLine( x - height, y + disp, x + height, y + disp, 1, 175)
+	end
+	
+	//Bottom windage stuff
+	for i = 0, 8 do
+		local height
+		if(i%2 == 1) then
+			height = 10*wr
+		else
+			height = 15*wr
+		end
+		local disp = ((clen+gap)+(gap*i*3))	//displacement
+		ADrawLine( x - height, y + disp, x + height, y + disp, 1, 175)
+	end
 end

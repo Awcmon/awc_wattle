@@ -103,6 +103,7 @@ SWEP.DTInts 					= {}
 
 SWEP.ViewModelBoneMods = {}
 SWEP.VElements = {}
+--[[SWEP.VElements = {
+	["silencer"] = { type = "Model", model = "models/props_c17/oildrum001.mdl", bone = "Frame", rel = "", pos = Vector(32.473, 0.004, 4.677), angle = Angle(90.065, 0, 0), size = Vector(0.059, 0.059, 0.259), color = Color(62, 62, 64, 255), surpresslightning = false, material = ""/*"phoenix_storms/gear"*/, skin = 0, bodygroup = {} }
+}]]--
 SWEP.WElements = {}
-
-
