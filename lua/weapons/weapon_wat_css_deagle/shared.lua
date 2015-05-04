@@ -49,7 +49,7 @@ SWEP.Secondary.Automatic 		= false
 SWEP.UseHands 					= true
 SWEP.AccurateCrosshair 			= false
 ---------
-SWEP.HoldType = "pistol"
+SWEP.HoldType 					= "pistol"
 
 SWEP.Primary.Damage 			= 55
 SWEP.Primary.DamageFalloff		= 0.0005

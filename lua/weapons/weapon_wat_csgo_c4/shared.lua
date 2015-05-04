@@ -1,5 +1,7 @@
+
 AddCSLuaFile( "shared.lua" )
 
+---------
 SWEP.PrintName 					= "C4 Timed Explosive"
 SWEP.Category 					= "Wattle CS:GO"
 SWEP.Base 						= "weapon_wattlebase"
@@ -12,8 +14,8 @@ SWEP.Contact 					= ""
 SWEP.Purpose 					= ""
 SWEP.Instructions 				= "After planting, there are 30 seconds on the fuse."
 
-SWEP.ViewModel 			= "models/weapons/c_csgo_c4.mdl"
-SWEP.WorldModel			= "models/weapons/w_c4.mdl"
+SWEP.ViewModel 					= "models/weapons/c_csgo_c4.mdl"
+SWEP.WorldModel					= "models/weapons/w_c4.mdl"
 SWEP.ViewModelFlip 				= false
 SWEP.ViewModelFOV 				= 57
 
@@ -46,7 +48,7 @@ SWEP.Secondary.Automatic 		= false
 SWEP.UseHands 					= true
 SWEP.AccurateCrosshair 			= true
 ---------
-SWEP.HoldType = "camera"
+SWEP.HoldType 					= "camera"
 
 SWEP.Primary.Damage				= 1000
 SWEP.Primary.Sound				= ""
@@ -78,7 +80,7 @@ SWEP.SetFATOnShoot 				= false
 
 SWEP.DTFloats = {"DeployFinishTime"}
 SWEP.DTBools = {"Planting"} 
-SWEP.DTInts 					= {}
+SWEP.DTInts = {}
 
 SWEP.ViewModelBoneMods = {}
 SWEP.VElements = {}
@@ -167,8 +169,6 @@ function SWEP:CreateBomb()
 		end
 
 		c4:Spawn()
-
-
 		--c4:SetMaterial("models/weapons/csgo/c4")
 
 		if IsValid(trace.Entity:GetPhysicsObject()) and IsValid(c4:GetPhysicsObject()) then
