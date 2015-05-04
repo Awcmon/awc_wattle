@@ -162,7 +162,7 @@ function SWEP:CreateBomb()
 		c4.BlastDamage = self.Primary.Damage or c4.BlastDamage or 1000
 
 		c4.Owner = self:GetOwner()
-		c4:SetOwner(game.GetWorld())
+		c4:SetOwner(self:GetOwner())
 
 		if c4.CPPISetOwner then
 			c4.CPPISetOwner(game.GetWorld())
