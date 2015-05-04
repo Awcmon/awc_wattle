@@ -60,7 +60,7 @@ SWEP.SwayScale 					= 0
 SWEP.BounceWeaponIcon 			= true
 SWEP.DrawWeaponInfoBox 			= true
 SWEP.DrawAmmo 					= true
-SWEP.DrawCrosshair 				= true
+SWEP.DrawCrosshair 				= false
 SWEP.Slot 						= 0
 SWEP.SlotPos 					= 10
 //SWEP.WepSelection 				= 
@@ -80,7 +80,7 @@ SWEP.Secondary.Automatic 		= false
 SWEP.UseHands 					= true
 SWEP.AccurateCrosshair 			= true
 ---------
-SWEP.HoldType = "ar2"
+SWEP.HoldType 					= "ar2"
 
 SWEP.Primary.Damage				= 42
 SWEP.Primary.Sound				= ""

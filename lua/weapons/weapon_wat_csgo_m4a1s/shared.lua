@@ -62,10 +62,10 @@ SWEP.Primary.Tracer				= 0
 SWEP.Primary.TracerName			= "Tracer"
 SWEP.Primary.MuzzleEffects		= { "effect_wat_muzzle_smoke" }
 
-SWEP.RecoilPitchAdd = 0.8
-SWEP.RecoilPitchMul = 0.14
-SWEP.RecoilYawAdd = 0.5
-SWEP.RecoilYawMul = 0.025
+SWEP.RecoilPitchAdd 			= 0.8
+SWEP.RecoilPitchMul 			= 0.14
+SWEP.RecoilYawAdd 				= 0.5
+SWEP.RecoilYawMul 				= 0.025
 
 SWEP.SpreadConeAdd 				= 0.0015
 SWEP.SpreadRecoveryTime 		= 0.3

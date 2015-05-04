@@ -29,7 +29,7 @@ SWEP.SwayScale 					= 0
 SWEP.BounceWeaponIcon 			= true
 SWEP.DrawWeaponInfoBox 			= true
 SWEP.DrawAmmo 					= true
-SWEP.DrawCrosshair 				= true
+SWEP.DrawCrosshair 				= false
 SWEP.Slot 						= 0
 SWEP.SlotPos 					= 10
 //SWEP.WepSelection 				= 
@@ -49,7 +49,7 @@ SWEP.Secondary.Automatic 		= false
 SWEP.UseHands 					= true
 SWEP.AccurateCrosshair 			= true
 ---------
-SWEP.HoldType = "ar2"
+SWEP.HoldType 					= "ar2"
 
 SWEP.Primary.Damage				= 42
 SWEP.Primary.DamageFalloff		= 0.02
@@ -62,10 +62,10 @@ SWEP.Primary.Tracer				= 0
 SWEP.Primary.TracerName			= "Tracer"
 SWEP.Primary.MuzzleEffects		= { "effect_wat_muzzle_flash", "effect_wat_muzzle_smoke", "effect_wat_muzzle_sparks" }
 
-SWEP.RecoilPitchAdd = 1.2
-SWEP.RecoilPitchMul = 0.2
-SWEP.RecoilYawAdd = 0.5
-SWEP.RecoilYawMul = 0.05
+SWEP.RecoilPitchAdd 			= 1.2
+SWEP.RecoilPitchMul 			= 0.2
+SWEP.RecoilYawAdd 				= 0.5
+SWEP.RecoilYawMul 				= 0.05
 
 SWEP.SpreadConeAdd 				= 0.0025
 SWEP.SpreadRecoveryTime 		= 0.3
@@ -319,6 +319,8 @@ function SWEP:WatShootBullet( dmg, recoil, numbul, cone )
 	bullet.Callback = function(attacker, trace, dmginfo)
 		local distance = trace.StartPos:Distance(trace.HitPos)
 		local damage = self.Primary.Damage-math.sqrt(self.Primary.DamageFalloff*distance)
+		debugoverlay.Line( trace.StartPos, trace.HitPos, 10, Color(0,255,0,255), true )
+		debugoverlay.Text( trace.HitPos, "Dmg: "..damage, 10)
 		/*
 		if ((CLIENT) || game.SinglePlayer()) then
 			if(WattleCVar["wat_cl_developer"]) then

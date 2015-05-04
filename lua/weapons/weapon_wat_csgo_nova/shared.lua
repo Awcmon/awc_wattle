@@ -62,10 +62,10 @@ SWEP.Primary.Tracer				= 0
 SWEP.Primary.TracerName			= "Tracer"
 SWEP.Primary.MuzzleEffects		= { "effect_wat_muzzle_flash", "effect_wat_muzzle_smoke", "effect_wat_muzzle_sparks" }
 
-SWEP.RecoilPitchAdd = 5
-SWEP.RecoilPitchMul = 0.14
-SWEP.RecoilYawAdd = 0.5
-SWEP.RecoilYawMul = 0.025
+SWEP.RecoilPitchAdd 			= 5
+SWEP.RecoilPitchMul 			= 0.14
+SWEP.RecoilYawAdd 				= 0.5
+SWEP.RecoilYawMul 				= 0.025
 
 SWEP.SpreadConeAdd 				= 0.01
 SWEP.SpreadRecoveryTime 		= 0.7
@@ -95,7 +95,7 @@ SWEP.SwayAngDiv					= 15
 SWEP.UseIrons					= false
 SWEP.UseScope					= false
 SWEP.Zoom 						= 20
-SWEP.SetFATOnShoot 				= false
+SWEP.SetFATOnShoot 				= true
 
 SWEP.DTFloats 					= {}
 SWEP.DTBools 					= {}

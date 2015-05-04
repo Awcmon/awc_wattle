@@ -102,3 +102,17 @@ function SWEP:SearchForMuzzleAttachment()
 	
 	return attach
 end
+
+/*Draw stuff-------------------------*/
+function ADrawLine(x1, y1, x2, y2, thickness, alphafade, r, g, b)
+	if(thickness > 0) then
+		local ang = math.atan2(x2-x1, y2-y1)
+		for i = -thickness, thickness do
+			surface.SetDrawColor( r or 0, g or 0, b or 0, 255-(math.abs(i)*(alphafade or 0)) )
+			surface.DrawLine( x1+math.cos(ang)*i, y1+math.sin(ang)*i, x2+math.cos(ang)*i, y2+math.sin(ang)*i )
+		end
+	else
+		surface.DrawLine( x1, y1, x2, y2 )
+	end
+	//surface.SetAlphaMultiplier(1)
+end

@@ -49,7 +49,7 @@ SWEP.Secondary.Automatic 		= false
 SWEP.UseHands 					= true
 SWEP.AccurateCrosshair 			= false
 ---------
-SWEP.HoldType = "ar2"
+SWEP.HoldType 					= "ar2"
 
 SWEP.Primary.Damage 			= 35
 SWEP.Primary.DamageFalloff		= 0.001
@@ -62,10 +62,10 @@ SWEP.Primary.Tracer				= 0
 SWEP.Primary.TracerName			= "Tracer"
 SWEP.Primary.MuzzleEffects		= { "effect_wat_muzzle_flash", "effect_wat_muzzle_smoke", "effect_wat_muzzle_sparks" }
 
-SWEP.RecoilPitchAdd = 1
-SWEP.RecoilPitchMul = 0.14
-SWEP.RecoilYawAdd = 0.5
-SWEP.RecoilYawMul = 0.025
+SWEP.RecoilPitchAdd 			= 1
+SWEP.RecoilPitchMul 			= 0.14
+SWEP.RecoilYawAdd 				= 0.5
+SWEP.RecoilYawMul 				= 0.025
 
 SWEP.SpreadConeAdd 				= 0.0025
 SWEP.SpreadRecoveryTime 		= 0.3
@@ -103,6 +103,7 @@ SWEP.DTInts 					= {}
 
 SWEP.ViewModelBoneMods = {}
 SWEP.VElements = {}
+--[[SWEP.VElements = {
+	["silencer"] = { type = "Model", model = "models/props_c17/oildrum001.mdl", bone = "Frame", rel = "", pos = Vector(32.473, 0.004, 4.677), angle = Angle(90.065, 0, 0), size = Vector(0.059, 0.059, 0.259), color = Color(62, 62, 64, 255), surpresslightning = false, material = ""/*"phoenix_storms/gear"*/, skin = 0, bodygroup = {} }
+}]]--
 SWEP.WElements = {}
-
-
