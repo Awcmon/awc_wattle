@@ -95,6 +95,7 @@ function SWEP:Deploy()
 	if self:GetOwner():GetAmmoCount(self.Primary.Ammo) < 1 then 
 		self:GetOwner():ChatPrint("You have no more C4.") 
 		self.VMPosOffset = Vector(0, -20, -20)
+		return false
 	else
 		self.VMPosOffset = Vector(0,0,0)
 	end
