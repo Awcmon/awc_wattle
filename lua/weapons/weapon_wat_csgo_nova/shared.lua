@@ -52,7 +52,7 @@ SWEP.AccurateCrosshair 			= false
 SWEP.HoldType 					= "shotgun"
 
 SWEP.Primary.Damage 			= 25
-SWEP.Primary.DamageFalloff		= 0.2
+SWEP.Primary.DamageFalloff		= 0.22
 SWEP.Primary.Sound				= Sound("Weapon_cnova.Single")
 SWEP.Primary.NumShots			= 8
 SWEP.Primary.Delay				= 60/68
@@ -72,9 +72,9 @@ SWEP.SpreadRecoveryTime 		= 0.7
 SWEP.SpreadConeAddCrouch 		= 0.0015
 SWEP.SpreadRecoveryTimeCrouch 	= 0.2
 
-SWEP.SpreadModVel 				= 0.02
-SWEP.SpreadModVelMax 			= 0.02
-SWEP.SpreadModInAir				= 0.015
+SWEP.SpreadModVel 				= 0.025
+SWEP.SpreadModVelMax 			= 0.025
+SWEP.SpreadModInAir				= 0.025
 SWEP.SpreadModCrouch 			= 0.0002
 
 SWEP.ReloadClipInTime			= 1.4

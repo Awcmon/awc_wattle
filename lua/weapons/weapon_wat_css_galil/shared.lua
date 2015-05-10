@@ -2,7 +2,7 @@
 AddCSLuaFile( "shared.lua" )
 
 ---------
-SWEP.PrintName 					= "M4A1"
+SWEP.PrintName 					= "Galil"
 SWEP.Category 					= "Wattle CS:S"
 SWEP.Base 						= "weapon_wattlebase_bullet"
 SWEP.Spawnable 					= true
@@ -14,8 +14,8 @@ SWEP.Contact 					= ""
 SWEP.Purpose 					= ""
 SWEP.Instructions 				= ""
 
-SWEP.ViewModel					= "models/weapons/cstrike/c_rif_m4a1.mdl"
-SWEP.WorldModel					= "models/weapons/w_rif_m4a1.mdl"
+SWEP.ViewModel					= "models/weapons/cstrike/c_rif_galil.mdl"
+SWEP.WorldModel					= "models/weapons/w_rif_galil.mdl"
 SWEP.ViewModelFlip 				= false
 SWEP.ViewModelFOV 				= 57
 
@@ -36,8 +36,8 @@ SWEP.SlotPos 					= 1
 SWEP.CSMuzzleFlashes 			= true
 SWEP.CSMuzzleX 					= false
 
-SWEP.Primary.ClipSize			= 30
-SWEP.Primary.DefaultClip 		= 120
+SWEP.Primary.ClipSize			= 35
+SWEP.Primary.DefaultClip 		= 140
 SWEP.Primary.Ammo 				= "smg1"
 SWEP.Primary.Automatic 			= true
 
@@ -51,9 +51,9 @@ SWEP.AccurateCrosshair 			= false
 ---------
 SWEP.HoldType 					= "ar2"
 
-SWEP.Primary.Damage 			= 35
+SWEP.Primary.Damage 			= 40
 SWEP.Primary.DamageFalloff		= 0.001
-SWEP.Primary.Sound				= Sound("Weapon_M4A1.Single")
+SWEP.Primary.Sound				= Sound("Weapon_Galil.Single")
 SWEP.Primary.NumShots			= 1
 SWEP.Primary.Delay				= 60/750
 SWEP.Primary.Cone				= 0.0015
@@ -62,22 +62,22 @@ SWEP.Primary.Tracer				= 0
 SWEP.Primary.TracerName			= "Tracer"
 SWEP.Primary.MuzzleEffects		= { "effect_wat_muzzle_flash", "effect_wat_muzzle_smoke", "effect_wat_muzzle_sparks" }
 
-SWEP.RecoilPitchAdd 			= 1
-SWEP.RecoilPitchMul 			= 0.14
-SWEP.RecoilYawAdd 				= 0.5
+SWEP.RecoilPitchAdd 			= 0.8
+SWEP.RecoilPitchMul 			= 0.1
+SWEP.RecoilYawAdd 				= 1
 SWEP.RecoilYawMul 				= 0.025
 
-SWEP.SpreadConeAdd 				= 0.0025
-SWEP.SpreadRecoveryTime 		= 0.3
+SWEP.SpreadConeAdd 				= 0.003
+SWEP.SpreadRecoveryTime 		= 0.8
 SWEP.SpreadConeAddCrouch 		= 0.0015
 SWEP.SpreadRecoveryTimeCrouch 	= 0.2
 
-SWEP.SpreadModVel 				= 0.065
-SWEP.SpreadModVelMax 			= 0.0002
+SWEP.SpreadModVel 				= 0.085
+SWEP.SpreadModVelMax 			= 0.085
 SWEP.SpreadModInAir				= 0.075
 SWEP.SpreadModCrouch 			= 0.0002
 
-SWEP.ReloadClipInTime			= 1.9
+SWEP.ReloadClipInTime			= 1.5
 
 SWEP.VMPosOffset 				= Vector(0,0,0)
 SWEP.VMAngOffset				= Angle(0,0,0)
@@ -90,7 +90,7 @@ SWEP.InspectAng 				= { Angle(28.993, 44.664, 18.545), Angle(38.395, 0, 0) }
 SWEP.IronSightsPos 				= Vector(-5.921, -2.708, 2.599)
 SWEP.IronSightsAng 				= Angle(0.057, -0.029, 0)
 SWEP.SwayPosDiv					= 30
-SWEP.SwayAngDiv					= 11
+SWEP.SwayAngDiv					= 15
 
 SWEP.UseIrons					= false
 SWEP.UseScope					= false
@@ -98,66 +98,9 @@ SWEP.Zoom 						= 30
 SWEP.SetFATOnShoot 				= false
 
 SWEP.DTFloats 					= {}
-SWEP.DTBools 					= { "Silenced" }
+SWEP.DTBools 					= {}
 SWEP.DTInts 					= {}
 
 SWEP.ViewModelBoneMods = {}
 SWEP.VElements = {}
 SWEP.WElements = {}
-
-
-function SWEP:Deploy()
-	self:WatDeploy()
-	if(self:GetSilenced()) then
-		self.Weapon:SendWeaponAnim( ACT_VM_DRAW_SILENCED )
-	else
-		self.Weapon:SendWeaponAnim( ACT_VM_DRAW )
-	end
-	return true
-end
-
-function SWEP:Reload()
-	if(self:GetSilenced()) then
-		self:WatReload(ACT_VM_RELOAD_SILENCED)
-	else
-		self:WatReload(ACT_VM_RELOAD)
-	end
-end
-
-function SWEP:SecondaryAttack()
-	
-//	if ( !self:CanSecondaryAttack() ) then return end
-	if(CurTime() < self:GetNextSecondaryFire()) then return end
-	
-	self:SetNextSecondaryFire( CurTime() + 3 )
-	self:SetNextPrimaryFire( CurTime() + 3 )
-	self:SetFAT(CurTime() + 3)
-	self.FAT = CurTime() + 3
-	
-	if(!self:GetSilenced()) then
-		self:SendWeaponAnim(ACT_VM_ATTACH_SILENCER)
-		self.Primary.MuzzleEffects		= { "effect_wat_muzzle_smoke" }
-		self.Primary.Sound = "Weapon_M4A1.Silenced"
-		self:SetSilenced(true)
-	else
-		self:SendWeaponAnim(ACT_VM_DETACH_SILENCER)
-		self.Primary.MuzzleEffects		= { "effect_wat_muzzle_flash", "effect_wat_muzzle_smoke", "effect_wat_muzzle_sparks" }
-		self.Primary.Sound = "Weapon_M4A1.Single"
-		self:SetSilenced(false)
-	end
-end
-
-function SWEP:ShootEffects()
-
-	if(self:GetSilenced()) then
-		self.Weapon:SendWeaponAnim( ACT_VM_PRIMARYATTACK_SILENCED )
-	else
-		self.Weapon:SendWeaponAnim( ACT_VM_PRIMARYATTACK )
-	end
-	self.Owner:SetAnimation( PLAYER_ATTACK1 )
-	
-	self.Weapon:EmitSound( self.Primary.Sound )
-		
-	if(!IsFirstTimePredicted()) then return end
-	self:WatMuzzleEffects()
-end

@@ -39,7 +39,7 @@ SWEP.CSMuzzleX 					= false
 SWEP.Primary.ClipSize			= 12
 SWEP.Primary.DefaultClip 		= 72
 SWEP.Primary.Ammo 				= "pistol"
-SWEP.Primary.Automatic 			= true
+SWEP.Primary.Automatic 			= false
 
 SWEP.Secondary.ClipSize 		= -1
 SWEP.Secondary.DefaultClip 		= -1
@@ -62,7 +62,7 @@ SWEP.Primary.Tracer				= 0
 SWEP.Primary.TracerName			= "Tracer"
 SWEP.Primary.MuzzleEffects		= { "effect_wat_muzzle_flash", "effect_wat_muzzle_smoke", "effect_wat_muzzle_sparks" }
 
-SWEP.RecoilPitchAdd 			= 1.8
+SWEP.RecoilPitchAdd 			= 1
 SWEP.RecoilPitchMul 			= 0.5
 SWEP.RecoilYawAdd 				= 0.5
 SWEP.RecoilYawMul 				= 0.05

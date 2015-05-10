@@ -77,6 +77,7 @@ end
 
 function SWEP:IsAiming()
 	local ply = self.Owner
+	if(!IsValid(ply)) then return end
 	return ply:KeyDown(IN_ATTACK2) && self.UseIrons && !ply:KeyDown(IN_USE) && !self:IsSprinting()// && (CurTime() > self:GetFRT())
 end
 
