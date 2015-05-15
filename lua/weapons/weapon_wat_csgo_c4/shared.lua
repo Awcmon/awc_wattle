@@ -77,6 +77,7 @@ SWEP.UseIrons					= false
 SWEP.UseScope					= false
 SWEP.Zoom 						= 50
 SWEP.SetFATOnShoot 				= false
+SWEP.CVFireAnimIroned			= false
 
 SWEP.DTFloats = {"DeployFinishTime"}
 SWEP.DTBools = {"Planting"} 

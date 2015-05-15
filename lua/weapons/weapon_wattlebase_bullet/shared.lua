@@ -96,6 +96,7 @@ SWEP.UseIrons					= false
 SWEP.UseScope					= false
 SWEP.Zoom 						= 50
 SWEP.SetFATOnShoot 				= false
+SWEP.CVFireAnimIroned			= false
 
 SWEP.DTFloats = {}
 SWEP.DTBools = {}
@@ -318,7 +319,7 @@ function SWEP:WatShootBullet( dmg, recoil, numbul, cone )
 	bullet.Damage		= dmg
 	bullet.Callback = function(attacker, trace, dmginfo)
 		local distance = trace.StartPos:Distance(trace.HitPos)
-		local damage = self.Primary.Damage-math.sqrt(self.Primary.DamageFalloff*distance)
+		local damage = math.Clamp(self.Primary.Damage-math.sqrt(self.Primary.DamageFalloff*distance), 0, self.Primary.Damage)
 		debugoverlay.Line( trace.StartPos, trace.HitPos, 10, Color(0,255,0,255), true )
 		debugoverlay.Text( trace.HitPos, "Dmg: "..damage, 10)
 		/*
@@ -367,8 +368,9 @@ function SWEP:WatMuzzleEffects()
 end
 
 function SWEP:ShootEffects()
-
-	self.Weapon:SendWeaponAnim( ACT_VM_PRIMARYATTACK ) -- View model animation
+	if(!self.CVFireAnimIroned || (self.CVFireAnimIroned && !self:IsAiming())) then
+		self.Weapon:SendWeaponAnim( ACT_VM_PRIMARYATTACK ) -- View model animation
+	end
 //	self.Owner:MuzzleFlash() -- Crappy muzzle light
 	self.Owner:SetAnimation( PLAYER_ATTACK1 ) -- 3rd Person Animation
 	

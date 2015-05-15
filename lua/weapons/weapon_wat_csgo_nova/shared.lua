@@ -96,6 +96,7 @@ SWEP.UseIrons					= false
 SWEP.UseScope					= false
 SWEP.Zoom 						= 20
 SWEP.SetFATOnShoot 				= true
+SWEP.CVFireAnimIroned			= false
 
 SWEP.DTFloats 					= {}
 SWEP.DTBools 					= {}
