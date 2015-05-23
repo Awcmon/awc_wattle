@@ -854,6 +854,18 @@ local soundData = {
 sound.Add(soundData)
 
 local soundData = {
+    name 		= "Weapon_Cm4a1.BoltBack" ,
+    channel 	= CHAN_ITEM,
+    volume 		= 1,
+    soundlevel 	= 80,
+    pitchstart 	= 100,
+    pitchend 	= 100,
+    sound 		= "CsGO/m4a1/m4a1_boltback.wav"
+}
+
+sound.Add(soundData)   
+
+local soundData = {
     name 		= "Weapon_Cm4a1.BoltForward" ,
     channel 	= CHAN_ITEM,
     volume 		= 1,
