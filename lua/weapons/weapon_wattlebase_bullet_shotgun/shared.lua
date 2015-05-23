@@ -101,8 +101,11 @@ end
    Think does nothing
 ---------------------------------------------------------*/
 function SWEP:Think()
-
 	self:WatThink()
+	self:ReloadThink()
+end
+
+function SWEP:ReloadThink()
 
 //	self.BaseClass:BaseThink()
 

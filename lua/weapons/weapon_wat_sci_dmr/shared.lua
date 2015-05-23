@@ -51,7 +51,7 @@ SWEP.AccurateCrosshair 			= false
 ---------
 SWEP.HoldType = "ar2"
 
-SWEP.Primary.Damage 			= 90
+SWEP.Primary.Damage 			= 76
 SWEP.Primary.DamageFalloff		= 0.001
 SWEP.Primary.Sound				= Sound("Weapon_AUG.Single")
 SWEP.Primary.NumShots			= 1

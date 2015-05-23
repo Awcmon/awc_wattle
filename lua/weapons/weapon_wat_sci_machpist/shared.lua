@@ -51,7 +51,7 @@ SWEP.AccurateCrosshair 			= false
 ---------
 SWEP.HoldType 					= "revolver"
 
-SWEP.Primary.Damage 			= 20
+SWEP.Primary.Damage 			= 25
 SWEP.Primary.DamageFalloff		= 0.02
 SWEP.Primary.Sound				= Sound( "Weapon_Pistol.NPC_Single" )
 SWEP.Primary.NumShots			= 1

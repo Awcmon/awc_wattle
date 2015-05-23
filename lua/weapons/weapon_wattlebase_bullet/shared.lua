@@ -319,7 +319,7 @@ function SWEP:WatShootBullet( dmg, recoil, numbul, cone )
 	bullet.Damage		= dmg
 	bullet.Callback = function(attacker, trace, dmginfo)
 		local distance = trace.StartPos:Distance(trace.HitPos)
-		local damage = math.Clamp(self.Primary.Damage-math.sqrt(self.Primary.DamageFalloff*distance), 0, self.Primary.Damage)
+		local damage = math.Clamp(dmg-math.sqrt(self.Primary.DamageFalloff*distance), 0, dmg)
 		debugoverlay.Line( trace.StartPos, trace.HitPos, 10, Color(0,255,0,255), true )
 		debugoverlay.Text( trace.HitPos, "Dmg: "..damage, 10)
 		/*

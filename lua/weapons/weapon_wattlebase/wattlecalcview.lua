@@ -73,8 +73,8 @@ function SWEP:WatViewModelCalcViewBase( ply, origin, angles, fov )
 		else
 			t = 0.5
 		end
-		self.CurIronPos = self.IronSightsPos - (self.VMPosOffset + self.CurWalkPos + self.CurSprintPos) + Bezier(Vector(0.05,0,0), Vector(0,0,0), Vector(-0.05,0,0), t)*(xyspeed/300)
-		self.CurIronAng = self.IronSightsAng - (self.VMAngOffset + self.CurWalkAng + self.CurSprintAng) + Bezier(Angle(-0.6,-0.4,0), Angle(1,0,0), Angle(-0.6,0.4,0), t)*(xyspeed/300)
+		self.CurIronPos = self.IronSightsPos - (self.VMPosOffset + self.CurWalkPos + self.CurSprintPos) + Bezier(Vector(-0.05,0,0), Vector(0,0,0), Vector(0.05,0,0), t)*(xyspeed/300)
+		self.CurIronAng = self.IronSightsAng - (self.VMAngOffset + self.CurWalkAng + self.CurSprintAng) + Bezier(Angle(-0.3,-0.2,0), Angle(0.5,0,0), Angle(-0.3,0.2,0), t)*(xyspeed/300)
 	else
 		WatAimProg = math.Approach(WatAimProg, 0, FrameTime()*4)
 		IronsightPos = Vector(0,0,0)
