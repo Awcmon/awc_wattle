@@ -87,8 +87,8 @@ SWEP.WalkPos 					= { Vector(-0.5,0,-1)*0.5, Vector(0,-1,1)*0.5, Vector(0.5,0,-1
 SWEP.WalkAng					= { Angle(-0.5,1,-2)*0.5, Angle(0.5,0,2)*0.5, Angle(-0.5,-1,3)*0.5 }
 SWEP.InspectPos 				= { Vector(8.883, -4, 0), Vector(-10.7, -1.153, 3.655) }
 SWEP.InspectAng 				= { Angle(5.678, 38.159, 17.649), Angle(-7.246, -8.81, -23.761) }
-SWEP.IronSightsPos 				= Vector(-4.724, -7.507, 0.796)
-SWEP.IronSightsAng 				= Angle(-0.343, 0.043, 0)
+SWEP.IronSightsPos 				= Vector(-5.281, -5.026, 0.239)
+SWEP.IronSightsAng 				= Angle(0.3, 2.5, 0)
 SWEP.SwayPosDiv					= 30
 SWEP.SwayAngDiv					= 13
 
