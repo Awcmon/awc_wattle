@@ -204,6 +204,10 @@ function SWEP:Recoil()
 	self.Owner:SetViewPunchAngles(PunchAng)
 end
 
+function SWEP:OnPrimaryAttack()
+
+end
+
 function SWEP:PrimaryAttack()
 	if(!IsValid(self)) then return end
 	if ( !self:CanPrimaryAttack() && self.Owner:IsPlayer() ) then return end
@@ -216,6 +220,8 @@ function SWEP:PrimaryAttack()
 	end
 	
 	if ( self.Owner:IsNPC() ) then return end
+	
+	self:OnPrimaryAttack()
 	
 	local recTime
 	local coneAdd

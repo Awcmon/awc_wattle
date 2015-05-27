@@ -51,14 +51,14 @@ SWEP.AccurateCrosshair 			= false
 ---------
 SWEP.HoldType = "ar2"
 
-SWEP.Primary.Damage 			= 110
-SWEP.Primary.DamageFalloff		= 0.001
+SWEP.Primary.Damage 			= 140
+SWEP.Primary.DamageFalloff		= 0.0001
 SWEP.Primary.Sound				= Sound("Weapon_Kar.Shoot")
 SWEP.Primary.NumShots			= 1
 SWEP.Primary.Delay				= 60/50
 SWEP.Primary.Cone				= 0.00001
 SWEP.Primary.ClumpCone			= 0
-SWEP.Primary.Tracer				= 1
+SWEP.Primary.Tracer				= 0
 SWEP.Primary.TracerName			= "effect_wat_tracer_smoke"
 SWEP.Primary.MuzzleEffects		= { "effect_wat_muzzle_flash", "effect_wat_muzzle_smoke", "effect_wat_muzzle_sparks" }
 

@@ -169,7 +169,7 @@ function SWEP:WatViewModelCalcViewFireAnimIroned( ply, origin, angles, fov )
 		self.CVFAIOldLST = self:GetLST()
 	end
 	
-	self.cvfaiviewmodel.origin.y = SmoothApproach(self.cvfaiviewmodel.origin.y, 0, FrameTime()*5)
+	self.cvfaiviewmodel.origin.y = SmoothApproach(self.cvfaiviewmodel.origin.y, 0, FrameTime()*10)
 	
 	return self.cvfaiviewmodel
 end

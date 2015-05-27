@@ -52,7 +52,7 @@ SWEP.AccurateCrosshair 			= false
 SWEP.HoldType = "ar2"
 
 SWEP.Primary.Damage 			= 10
-SWEP.Primary.DamageFalloff		= 0.01
+SWEP.Primary.DamageFalloff		= 0.02
 SWEP.Primary.Sound				= Sound("weapons/shotgun/shotgun_fire6.wav")
 SWEP.Primary.NumShots			= 12
 SWEP.Primary.Delay				= 60/120
@@ -199,8 +199,8 @@ function SWEP:SecondaryAttack()
 	if ( self:IsSprinting() ) then return end
 	
 	if(self:Clip1() > 0) then
-		self:SetNextSecondaryFire( CurTime() + 0.2 )
-		self:SetNextPrimaryFire( CurTime() + 0.2 )
+		self:SetNextSecondaryFire( CurTime() + 0.3 )
+		self:SetNextPrimaryFire( CurTime() + 0.3 )
 
 		self.Weapon:SendWeaponAnim( ACT_SHOTGUN_PUMP )
 
