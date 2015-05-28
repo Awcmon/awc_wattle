@@ -87,12 +87,12 @@ SWEP.WalkPos 					= { Vector(-0.15,0,0), Vector(0,0,0.5), Vector(0.15,0,0) }
 SWEP.WalkAng					= { Angle(-0.5,0.5,-1), Angle(0,0,0), Angle(-0.5,-0.5,1.5) }
 SWEP.InspectPos 				= { Vector(10.534, -6.751, 0.247), Vector(-11.7, -0.073, 0.519) }
 SWEP.InspectAng 				= { Angle(20.006, 40.09, 19.408), Angle(18.61, -1.061, -62.477) }
-SWEP.IronSightsPos 				= Vector(-5.921, -2.708, 2.599)
-SWEP.IronSightsAng 				= Angle(0.057, -0.029, 0)
+SWEP.IronSightsPos 				= Vector(-2.32, 0, 1.12)
+SWEP.IronSightsAng 				= Angle(-1.29, 0, 0)
 SWEP.SwayPosDiv					= 50
 SWEP.SwayAngDiv					= 11
 
-SWEP.UseIrons					= false
+SWEP.UseIrons					= true
 SWEP.UseScope					= false
 SWEP.Zoom 						= 20
 SWEP.SetFATOnShoot 				= false
@@ -128,16 +128,16 @@ function SWEP:WatViewModelCalcViewFireAnimIroned( ply, origin, angles, fov )
 
 	if (self.CVFAIOldLST != self:GetLST()) then
 		self.ViewModelBoneMods["slide"].pos.x = -2
-		self.cvfaiviewmodel.origin.y = math.Approach(self.cvfaiviewmodel.origin.y, -2, 2)
-		self.cvfaiviewmodel.origin.z = math.Approach(self.cvfaiviewmodel.origin.z, -3, 1)
+		self.cvfaiviewmodel.origin.y = math.Approach(self.cvfaiviewmodel.origin.y, -1.5, 1.5)
+		self.cvfaiviewmodel.origin.z = math.Approach(self.cvfaiviewmodel.origin.z, -3, 0.5)
 		self.cvfaiviewmodel.angles.pitch = math.Approach(self.cvfaiviewmodel.angles.pitch, 20, 5)
 		self.CVFAIOldLST = self:GetLST()
 	end
 	
 	self.ViewModelBoneMods["slide"].pos.x = math.Approach(self.ViewModelBoneMods["slide"].pos.x, 0, FrameTime()*15)
 	self.cvfaiviewmodel.origin.y = SmoothApproach(self.cvfaiviewmodel.origin.y, 0, FrameTime()*10)
-	self.cvfaiviewmodel.origin.z = SmoothApproach(self.cvfaiviewmodel.origin.z, 0, FrameTime()*5)
-	self.cvfaiviewmodel.angles.pitch = SmoothApproach(self.cvfaiviewmodel.angles.pitch, 0, FrameTime()*5)
+	self.cvfaiviewmodel.origin.z = SmoothApproach(self.cvfaiviewmodel.origin.z, 0, FrameTime()*10)
+	self.cvfaiviewmodel.angles.pitch = SmoothApproach(self.cvfaiviewmodel.angles.pitch, 0, FrameTime()*10)
 	
 	return self.cvfaiviewmodel
 end

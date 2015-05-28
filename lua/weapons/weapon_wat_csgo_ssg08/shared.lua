@@ -58,7 +58,7 @@ SWEP.Primary.NumShots			= 1
 SWEP.Primary.Delay				= 60/50
 SWEP.Primary.Cone				= 0.0005
 SWEP.Primary.ClumpCone			= 0
-SWEP.Primary.Tracer				= 1
+SWEP.Primary.Tracer				= 0
 SWEP.Primary.TracerName			= "effect_wat_tracer_smoke"
 SWEP.Primary.MuzzleEffects		= { "effect_wat_muzzle_flash", "effect_wat_muzzle_smoke", "effect_wat_muzzle_sparks" }
 
