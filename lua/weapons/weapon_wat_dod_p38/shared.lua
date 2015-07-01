@@ -18,7 +18,7 @@ SWEP.Instructions 				= ""
 SWEP.ViewModel					= "models/weapons/v_p38.mdl"
 SWEP.WorldModel					= "models/weapons/w_p38.mdl"
 SWEP.ViewModelFlip 				= false
-SWEP.ViewModelFOV 				= 57
+SWEP.ViewModelFOV 				= 47
 
 SWEP.Weight 					= 5
 SWEP.AutoSwitchFrom 			= false
@@ -30,7 +30,7 @@ SWEP.BounceWeaponIcon 			= true
 SWEP.DrawWeaponInfoBox 			= true
 SWEP.DrawAmmo 					= true
 SWEP.DrawCrosshair 				= false
-SWEP.Slot 						= 2
+SWEP.Slot 						= 1
 SWEP.SlotPos 					= 1
 //SWEP.WepSelection 				= 
 SWEP.CSMuzzleFlashes 			= true
@@ -51,8 +51,8 @@ SWEP.AccurateCrosshair 			= false
 ---------
 SWEP.HoldType = "ar2"
 
-SWEP.Primary.Damage 			= 40
-SWEP.Primary.DamageFalloff		= 0.01
+SWEP.Primary.Damage 			= 35
+SWEP.Primary.DamageFalloff		= 0.001
 SWEP.Primary.Sound				= Sound("Weapon_Luger.Shoot")
 SWEP.Primary.NumShots			= 1
 SWEP.Primary.Delay				= 60/450
@@ -64,15 +64,15 @@ SWEP.Primary.MuzzleEffects		= { "effect_wat_muzzle_flash", "effect_wat_muzzle_sm
 
 SWEP.RecoilPitchAdd 			= 3
 SWEP.RecoilPitchMul 			= 0.1
-SWEP.RecoilYawAdd 				= 3
-SWEP.RecoilYawMul 				= 0.02
+SWEP.RecoilYawAdd 				= 0.5
+SWEP.RecoilYawMul 				= 0.01
 
 SWEP.SpreadConeAdd 				= 0.02
 SWEP.SpreadRecoveryTime 		= 0.2
 SWEP.SpreadConeAddCrouch 		= 0.02
 SWEP.SpreadRecoveryTimeCrouch 	= 0.2
 
-SWEP.SpreadModVel 				= 0.02
+SWEP.SpreadModVel 				= 0.0015
 SWEP.SpreadModVelMax 			= 0.225
 SWEP.SpreadModInAir				= 0.02
 SWEP.SpreadModCrouch 			= 0.0002
