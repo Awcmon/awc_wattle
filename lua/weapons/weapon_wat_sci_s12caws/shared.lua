@@ -51,8 +51,8 @@ SWEP.AccurateCrosshair 			= false
 ---------
 SWEP.HoldType = "ar2"
 
-SWEP.Primary.Damage 			= 10
-SWEP.Primary.DamageFalloff		= 0.02
+SWEP.Primary.Damage 			= 8
+SWEP.Primary.DamageFalloff		= 0.035
 SWEP.Primary.Sound				= Sound("weapons/shotgun/shotgun_fire6.wav")
 SWEP.Primary.NumShots			= 12
 SWEP.Primary.Delay				= 60/120
@@ -62,7 +62,7 @@ SWEP.Primary.Tracer				= 0
 SWEP.Primary.TracerName			= "effect_wat_tracer_smoke"
 SWEP.Primary.MuzzleEffects		= { "effect_wat_muzzle_flash", "effect_wat_muzzle_smoke", "effect_wat_muzzle_sparks" }
 
-SWEP.RecoilPitchAdd 			= 0.4
+SWEP.RecoilPitchAdd 			= 6
 SWEP.RecoilPitchMul 			= 0.1
 SWEP.RecoilYawAdd 				= 0.5
 SWEP.RecoilYawMul 				= 0.02
@@ -72,9 +72,9 @@ SWEP.SpreadRecoveryTime 		= 0.5
 SWEP.SpreadConeAddCrouch 		= 0.1
 SWEP.SpreadRecoveryTimeCrouch 	= 0.2
 
-SWEP.SpreadModVel 				= 0.02
+SWEP.SpreadModVel 				= 0.075
 SWEP.SpreadModVelMax 			= 0.225
-SWEP.SpreadModInAir				= 0.02
+SWEP.SpreadModInAir				= 0.04
 SWEP.SpreadModCrouch 			= 0.0002
 
 SWEP.ReloadClipInTime			= 2.65

@@ -225,6 +225,7 @@ function SWEP:PrimaryAttack()
 	
 	local recTime
 	local coneAdd
+	/*
 	if(!self:IsCrouching()) then
 		recTime = self.SpreadRecoveryTime
 		coneAdd = self.SpreadConeAdd
@@ -232,7 +233,11 @@ function SWEP:PrimaryAttack()
 		recTime = self.SpreadRecoveryTimeCrouch
 		coneAdd = self.SpreadConeAddCrouch
 	end
-
+	*/
+	
+	recTime = self.SpreadRecoveryTime
+	coneAdd = self.SpreadConeAdd
+	
 	self:SetCone( math.Clamp( self:GetCone() * math.exp( -(CurTime() - self:GetLST()) / ( math.log10(math.exp(1)) * recTime ) ), self.Primary.Cone, 1000 ) )
 
 	self:WatShootBullet( self.Primary.Damage, self.Primary.Recoil, self.Primary.NumShots, self:GetCone() + self:SpreadMovementAdditive() )
