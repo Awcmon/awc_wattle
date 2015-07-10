@@ -59,7 +59,7 @@ SWEP.Primary.Delay				= 60/800
 SWEP.Primary.Cone				= 0.0015
 SWEP.Primary.ClumpCone			= 0
 SWEP.Primary.Tracer				= 0
-SWEP.Primary.TracerName			= "Tracer"
+SWEP.Primary.TracerName			= "effect_wat_tracer_smoke"
 SWEP.Primary.MuzzleEffects		= { "effect_wat_muzzle_flash", "effect_wat_muzzle_smoke", "effect_wat_muzzle_sparks" }
 
 SWEP.RecoilPitchAdd 			= 1.2
@@ -96,6 +96,7 @@ SWEP.UseIrons					= false
 SWEP.UseScope					= false
 SWEP.Zoom 						= 30
 SWEP.SetFATOnShoot 				= false
+SWEP.CVFireAnimIroned			= false
 
 SWEP.DTFloats 					= {}
 SWEP.DTBools 					= {}

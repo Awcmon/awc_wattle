@@ -2,8 +2,8 @@
 AddCSLuaFile( "shared.lua" )
 
 ---------
-SWEP.PrintName 					= "SSG-08"
-SWEP.Category 					= "Wattle CS:GO"
+SWEP.PrintName 					= "Steyr Scout"
+SWEP.Category 					= "Wattle CS:S"
 SWEP.Base 						= "weapon_wattlebase_bullet"
 SWEP.Spawnable 					= true
 SWEP.AdminOnly 					= false
@@ -14,7 +14,7 @@ SWEP.Contact 					= ""
 SWEP.Purpose 					= ""
 SWEP.Instructions 				= ""
 
-SWEP.ViewModel					= "models/weapons/c_csgo_ssg08.mdl"
+SWEP.ViewModel					= "models/weapons/cstrike/c_snip_scout.mdl"
 SWEP.WorldModel					= "models/weapons/w_snip_scout.mdl"
 SWEP.ViewModelFlip 				= false
 SWEP.ViewModelFOV 				= 57
@@ -53,7 +53,7 @@ SWEP.HoldType 					= "ar2"
 
 SWEP.Primary.Damage 			= 78
 SWEP.Primary.DamageFalloff		= 0.00025
-SWEP.Primary.Sound				= Sound("csgo/ssg08/ssg08-1.wav")
+SWEP.Primary.Sound				= Sound("Weapon_Scout.Single")
 SWEP.Primary.NumShots			= 1
 SWEP.Primary.Delay				= 60/50
 SWEP.Primary.Cone				= 0.0005
@@ -77,9 +77,9 @@ SWEP.SpreadModVelMax 			= 0.0002
 SWEP.SpreadModInAir				= 0.075
 SWEP.SpreadModCrouch 			= 0.0002
 
-SWEP.ReloadClipInTime			= 2.1
+SWEP.ReloadClipInTime			= 1.6
 
-SWEP.VMPosOffset 				= Vector(0,-4,-1)
+SWEP.VMPosOffset 				= Vector(0,0,0)
 SWEP.VMAngOffset				= Angle(0,0,0)
 SWEP.SprintPos	 				= { Vector(0.5,-2.5-4,-4), Vector(0.5,-2.5-4,-4), Vector(0.5,-2.5-4,-4) }
 SWEP.SprintAng					= { Angle(-12,32,-35), Angle(-6,35,-35), Angle(-12,38,-35) }

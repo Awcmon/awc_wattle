@@ -3,7 +3,7 @@ AddCSLuaFile( "shared.lua" )
 
 ---------
 SWEP.PrintName 					= "AK-47"
-SWEP.Category 					= "Wattle CS:GO"
+SWEP.Category 					= "Wattle CS:S"
 SWEP.Base 						= "weapon_wattlebase_bullet"
 SWEP.Spawnable 					= true
 SWEP.AdminOnly 					= false
@@ -14,10 +14,10 @@ SWEP.Contact 					= ""
 SWEP.Purpose 					= ""
 SWEP.Instructions 				= ""
 
-SWEP.ViewModel					= "models/weapons/c_csgo_ak47.mdl"
+SWEP.ViewModel					= "models/weapons/cstrike/c_rif_ak47.mdl"
 SWEP.WorldModel					= "models/weapons/w_rif_ak47.mdl"
 SWEP.ViewModelFlip 				= false
-SWEP.ViewModelFOV 				= 57
+SWEP.ViewModelFOV 				= 47
 
 SWEP.Weight 					= 5
 SWEP.AutoSwitchFrom 			= false
@@ -53,7 +53,7 @@ SWEP.HoldType = "ar2"
 
 SWEP.Primary.Damage 			= 40
 SWEP.Primary.DamageFalloff		= 0.0015
-SWEP.Primary.Sound				= Sound("Weapon_cak47.Single")
+SWEP.Primary.Sound				= Sound("Weapon_ak47.Single")
 SWEP.Primary.NumShots			= 1
 SWEP.Primary.Delay				= 60/600
 SWEP.Primary.Cone				= 0.0015
@@ -77,9 +77,9 @@ SWEP.SpreadModVelMax 			= 0.0002
 SWEP.SpreadModInAir				= 0.075
 SWEP.SpreadModCrouch 			= 0.0002
 
-SWEP.ReloadClipInTime			= 1.2
+SWEP.ReloadClipInTime			= 1.7
 
-SWEP.VMPosOffset 				= Vector(1,0,-1)
+SWEP.VMPosOffset 				= Vector(0,0,0)
 SWEP.VMAngOffset				= Angle(0,0,0)
 SWEP.SprintPos	 				= { Vector(0,-3,-3.5), Vector(0.5,-2.5,-3), Vector(0.5,-2.5,-3) }
 SWEP.SprintAng					= { Angle(-12,32,-35), Angle(-6,35,-35), Angle(-12,38,-35) }

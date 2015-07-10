@@ -51,13 +51,13 @@ SWEP.AccurateCrosshair 			= false
 ---------
 SWEP.HoldType 					= "shotgun"
 
-SWEP.Primary.Damage 			= 25
-SWEP.Primary.DamageFalloff		= 0.22
+SWEP.Primary.Damage 			= 20
+SWEP.Primary.DamageFalloff		= 0.15
 SWEP.Primary.Sound				= Sound("Weapon_cnova.Single")
-SWEP.Primary.NumShots			= 8
+SWEP.Primary.NumShots			= 6
 SWEP.Primary.Delay				= 60/68
-SWEP.Primary.Cone				= 0.0075
-SWEP.Primary.ClumpCone			= 0.015
+SWEP.Primary.Cone				= 0.02
+SWEP.Primary.ClumpCone			= 0.0175
 SWEP.Primary.Tracer				= 0
 SWEP.Primary.TracerName			= "Tracer"
 SWEP.Primary.MuzzleEffects		= { "effect_wat_muzzle_flash", "effect_wat_muzzle_smoke", "effect_wat_muzzle_sparks" }
@@ -67,14 +67,14 @@ SWEP.RecoilPitchMul 			= 0.14
 SWEP.RecoilYawAdd 				= 0.5
 SWEP.RecoilYawMul 				= 0.025
 
-SWEP.SpreadConeAdd 				= 0.01
-SWEP.SpreadRecoveryTime 		= 0.7
+SWEP.SpreadConeAdd 				= 0.05
+SWEP.SpreadRecoveryTime 		= 1
 SWEP.SpreadConeAddCrouch 		= 0.0015
 SWEP.SpreadRecoveryTimeCrouch 	= 0.2
 
-SWEP.SpreadModVel 				= 0.025
-SWEP.SpreadModVelMax 			= 0.025
-SWEP.SpreadModInAir				= 0.025
+SWEP.SpreadModVel 				= 0.055
+SWEP.SpreadModVelMax 			= 0.05
+SWEP.SpreadModInAir				= 0.055
 SWEP.SpreadModCrouch 			= 0.0002
 
 SWEP.ReloadClipInTime			= 1.4
@@ -96,6 +96,7 @@ SWEP.UseIrons					= false
 SWEP.UseScope					= false
 SWEP.Zoom 						= 20
 SWEP.SetFATOnShoot 				= true
+SWEP.CVFireAnimIroned			= false
 
 SWEP.DTFloats 					= {}
 SWEP.DTBools 					= {}

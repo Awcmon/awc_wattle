@@ -11,7 +11,7 @@ SWEP.m_WeaponDeploySpeed 		= 1
 
 SWEP.Author 					= "BFG"
 SWEP.Contact 					= ""
-SWEP.Purpose 					= ""
+SWEP.Purpose 					= "Much Thanks to Bugboy1028"
 SWEP.Instructions 				= "After planting, there are 30 seconds on the fuse."
 
 SWEP.ViewModel 					= "models/weapons/c_csgo_c4.mdl"
@@ -77,6 +77,7 @@ SWEP.UseIrons					= false
 SWEP.UseScope					= false
 SWEP.Zoom 						= 50
 SWEP.SetFATOnShoot 				= false
+SWEP.CVFireAnimIroned			= false
 
 SWEP.DTFloats = {"DeployFinishTime"}
 SWEP.DTBools = {"Planting"} 

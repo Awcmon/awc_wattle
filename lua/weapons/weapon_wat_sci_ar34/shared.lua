@@ -96,8 +96,9 @@ SWEP.UseIrons					= true
 SWEP.UseScope					= true
 SWEP.Zoom 						= 60
 SWEP.SetFATOnShoot 				= false
-//EBT = EndBurstTime
-SWEP.DTFloats 					= {"EBT"}
+SWEP.CVFireAnimIroned			= false
+
+SWEP.DTFloats 					= {"EBT"}	//EBT = EndBurstTime
 SWEP.DTBools 					= {}
 SWEP.DTInts 					= {"BurstProgress"}
 

@@ -3,8 +3,8 @@ AddCSLuaFile( "shared.lua" )
 
 ---------
 SWEP.PrintName 					= "MP5"
-SWEP.Category 					= "Wattle CS:S"
-SWEP.Base 						= "weapon_wattlebase_bullet"
+SWEP.Category 					= "Wattle"
+SWEP.Base 						= "weapon_wattlebase"
 SWEP.Spawnable 					= true
 SWEP.AdminOnly 					= false
 SWEP.m_WeaponDeploySpeed 		= 1
@@ -14,8 +14,8 @@ SWEP.Contact 					= ""
 SWEP.Purpose 					= ""
 SWEP.Instructions 				= ""
 
-SWEP.ViewModel					= "models/weapons/cstrike/c_smg_mp5.mdl"
-SWEP.WorldModel					= "models/weapons/w_smg_mp5.mdl"
+SWEP.ViewModel 					= "models/weapons/c_crowbar.mdl"
+SWEP.WorldModel 				= "models/weapons/w_crowbar.mdl"
 SWEP.ViewModelFlip 				= false
 SWEP.ViewModelFOV 				= 57
 
@@ -103,5 +103,33 @@ SWEP.DTBools 					= {}
 SWEP.DTInts 					= {}
 
 SWEP.ViewModelBoneMods = {}
-SWEP.VElements = {}
+SWEP.VElements = {
+	["lightsaber"] = { type = "Model", model = "models/sgg/starwars/weapons/w_anakin_ep3_saber_hilt.mdl", bone = "ValveBiped.Bip01_R_Hand", rel = "", pos = Vector(3.513, 1.889, -6.434), angle = Angle(83.116, 180, -47.109), size = Vector(1, 1, 1), color = Color(255, 255, 255, 255), surpresslightning = false, material = "", skin = 0, bodygroup = {} }
+}
 SWEP.WElements = {}
+
+if(CLIENT) then
+	function SWEP:PreDrawViewModel(vm, wep)
+		render.ClearStencil()
+		render.SetStencilEnable(true)
+				
+		render.SetStencilFailOperation(STENCILOPERATION_INCR)
+		render.SetStencilZFailOperation(STENCILOPERATION_INCR)
+		render.SetStencilPassOperation(STENCILOPERATION_INCR)
+		render.SetStencilCompareFunction(STENCILCOMPARISONFUNCTION_NOTEQUAL)
+		
+		render.SetStencilReferenceValue(1)
+		
+		cam.IgnoreZ(true)
+	end
+
+	function SWEP:PostDrawViewModel(vm, wep)
+		render.SetStencilReferenceValue(1)
+		render.SetStencilCompareFunction(STENCILCOMPARISONFUNCTION_EQUAL)
+		render.SetStencilPassOperation(STENCILOPERATION_REPLACE)
+		render.SetStencilReferenceValue(1)
+
+		render.SetStencilEnable(false)
+		cam.IgnoreZ(false)
+	end
+end

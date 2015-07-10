@@ -6,7 +6,11 @@ end
 function SWEP:WatCalcView( ply, origin, angles, fov )
 	local view = {}
 	view.origin = origin
-	view.angles = angles - ply:GetViewPunchAngles()*(1-WatRecoilTrack)
+	if(self:IsAiming()) then
+		view.angles = angles
+	else
+		view.angles = angles - ply:GetViewPunchAngles()*(1-WatRecoilTrack)
+	end
 	
 	return view
 end
@@ -69,8 +73,8 @@ function SWEP:WatViewModelCalcViewBase( ply, origin, angles, fov )
 		else
 			t = 0.5
 		end
-		self.CurIronPos = self.IronSightsPos - (self.VMPosOffset + self.CurWalkPos + self.CurSprintPos) + Bezier(Vector(0.05,0,0), Vector(0,0,0), Vector(-0.05,0,0), t)*(xyspeed/300)
-		self.CurIronAng = self.IronSightsAng - (self.VMAngOffset + self.CurWalkAng + self.CurSprintAng) + Bezier(Angle(-0.6,-0.4,0), Angle(1,0,0), Angle(-0.6,0.4,0), t)*(xyspeed/300)
+		self.CurIronPos = self.IronSightsPos - (self.VMPosOffset + self.CurWalkPos + self.CurSprintPos) + Bezier(Vector(-0.05,0,0), Vector(0,0,0), Vector(0.05,0,0), t)*(xyspeed/300)
+		self.CurIronAng = self.IronSightsAng - (self.VMAngOffset + self.CurWalkAng + self.CurSprintAng) + Bezier(Angle(-0.3,-0.2,0), Angle(0.5,0,0), Angle(-0.3,0.2,0), t)*(xyspeed/300)
 	else
 		WatAimProg = math.Approach(WatAimProg, 0, FrameTime()*4)
 		IronsightPos = Vector(0,0,0)
@@ -151,6 +155,25 @@ function SWEP:WatViewModelCalcViewSway( ply, origin, angles, fov )
 	return self.swayviewmodel
 end
 
+//CVFireAnimIroned
+SWEP.CVFAIOldLST = 0
+SWEP.cvfaiviewmodel = {}
+SWEP.cvfaiviewmodel.origin = Vector(0,0,0)
+SWEP.cvfaiviewmodel.angles = Angle(0,0,0)
+function SWEP:WatViewModelCalcViewFireAnimIroned( ply, origin, angles, fov )
+
+	if(!self.CVFireAnimIroned) then return self.cvfaiviewmodel end
+
+	if ((self.CVFAIOldLST != self:GetLST()) && self:IsAiming()) then
+		self.cvfaiviewmodel.origin.y = math.Approach(self.cvfaiviewmodel.origin.y, -5, 3)
+		self.CVFAIOldLST = self:GetLST()
+	end
+	
+	self.cvfaiviewmodel.origin.y = SmoothApproach(self.cvfaiviewmodel.origin.y, 0, FrameTime()*10)
+	
+	return self.cvfaiviewmodel
+end
+
 
 //Replaceable per weapon
 SWEP.curviewmodel = {}
@@ -161,10 +184,11 @@ function SWEP:WatViewModelCalcView( ply, origin, angles, fov )
 	local base = self:WatViewModelCalcViewBase( ply, origin, angles, fov )
 	local inspect = self:WatViewModelCalcViewInspect( ply, origin, angles, fov )
 	local sway = self:WatViewModelCalcViewSway( ply, origin, angles, fov )
+	local cvfai = self:WatViewModelCalcViewFireAnimIroned( ply, origin, angles, fov )
 	
 	local viewmodel = {}
-	viewmodel.origin = base.origin + inspect.origin + sway.origin
-	viewmodel.angles = base.angles + inspect.angles + sway.angles
+	viewmodel.origin = base.origin + inspect.origin + sway.origin + cvfai.origin
+	viewmodel.angles = base.angles + inspect.angles + sway.angles + cvfai.angles
 	
 	return viewmodel
 end
@@ -211,7 +235,9 @@ function SWEP:GetViewModelPosition(pos, ang)
 	local up = ang:Up()
 
 	//Compensate for viewpunch
-	ang = ang - self.Owner:GetViewPunchAngles()*(1-WatRecoilTrack)
+	if(!self:IsAiming()) then
+		ang = ang - self.Owner:GetViewPunchAngles()*(1-WatRecoilTrack)
+	end
 	
 	//CurViewModel stuff
 	pos = pos + (right*self.ucurviewmodel.origin.x) + (forward*self.ucurviewmodel.origin.y) + (up*self.ucurviewmodel.origin.z)

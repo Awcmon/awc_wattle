@@ -96,6 +96,7 @@ SWEP.UseIrons					= false
 SWEP.UseScope					= false
 SWEP.Zoom 						= 50
 SWEP.SetFATOnShoot 				= false
+SWEP.CVFireAnimIroned			= false
 
 SWEP.DTFloats = {}
 SWEP.DTBools = {}
@@ -203,6 +204,10 @@ function SWEP:Recoil()
 	self.Owner:SetViewPunchAngles(PunchAng)
 end
 
+function SWEP:OnPrimaryAttack()
+
+end
+
 function SWEP:PrimaryAttack()
 	if(!IsValid(self)) then return end
 	if ( !self:CanPrimaryAttack() && self.Owner:IsPlayer() ) then return end
@@ -216,8 +221,11 @@ function SWEP:PrimaryAttack()
 	
 	if ( self.Owner:IsNPC() ) then return end
 	
+	self:OnPrimaryAttack()
+	
 	local recTime
 	local coneAdd
+	/*
 	if(!self:IsCrouching()) then
 		recTime = self.SpreadRecoveryTime
 		coneAdd = self.SpreadConeAdd
@@ -225,7 +233,11 @@ function SWEP:PrimaryAttack()
 		recTime = self.SpreadRecoveryTimeCrouch
 		coneAdd = self.SpreadConeAddCrouch
 	end
-
+	*/
+	
+	recTime = self.SpreadRecoveryTime
+	coneAdd = self.SpreadConeAdd
+	
 	self:SetCone( math.Clamp( self:GetCone() * math.exp( -(CurTime() - self:GetLST()) / ( math.log10(math.exp(1)) * recTime ) ), self.Primary.Cone, 1000 ) )
 
 	self:WatShootBullet( self.Primary.Damage, self.Primary.Recoil, self.Primary.NumShots, self:GetCone() + self:SpreadMovementAdditive() )
@@ -318,7 +330,7 @@ function SWEP:WatShootBullet( dmg, recoil, numbul, cone )
 	bullet.Damage		= dmg
 	bullet.Callback = function(attacker, trace, dmginfo)
 		local distance = trace.StartPos:Distance(trace.HitPos)
-		local damage = self.Primary.Damage-math.sqrt(self.Primary.DamageFalloff*distance)
+		local damage = math.Clamp(dmg-math.sqrt(self.Primary.DamageFalloff*distance), 0, dmg)
 		debugoverlay.Line( trace.StartPos, trace.HitPos, 10, Color(0,255,0,255), true )
 		debugoverlay.Text( trace.HitPos, "Dmg: "..damage, 10)
 		/*
@@ -367,8 +379,9 @@ function SWEP:WatMuzzleEffects()
 end
 
 function SWEP:ShootEffects()
-
-	self.Weapon:SendWeaponAnim( ACT_VM_PRIMARYATTACK ) -- View model animation
+	if(!self.CVFireAnimIroned || (self.CVFireAnimIroned && !self:IsAiming())) then
+		self.Weapon:SendWeaponAnim( ACT_VM_PRIMARYATTACK ) -- View model animation
+	end
 //	self.Owner:MuzzleFlash() -- Crappy muzzle light
 	self.Owner:SetAnimation( PLAYER_ATTACK1 ) -- 3rd Person Animation
 	
