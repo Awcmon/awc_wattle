@@ -406,9 +406,11 @@ function SWEP:OnRemove()
 	self:WatOnRemove()
 end
 
-function WattleEntityRemoved(ent)
+local function WattleEntityRemoved(ent)
 	if(CLIENT) then
-		if(ent.Wattle) then
+		if(ent.Wattle) and (CurTime() > (WATTLE_JOINED_TIME + 30)) then
+			--print("DEBUG:   " .. CurTime())
+			--print("DEBUG:   " .. WATTLE_JOINED_TIME + 30)
 			if(ent.VElements) then
 				ent:RemoveModels(ent.VElements)
 			end
@@ -419,6 +421,12 @@ function WattleEntityRemoved(ent)
 	end
 end
 hook.Add("EntityRemoved", "WattleEntityRemoved", WattleEntityRemoved)
+
+hook.Add("InitPostEntity", "WattleClavSetSetJoinTime", function(ply)
+	if CLIENT then
+		WATTLE_JOINED_TIME = CurTime()
+	end
+end)
 
 function SWEP:Think()
 	self:WatThink()
