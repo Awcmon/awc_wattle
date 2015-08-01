@@ -225,6 +225,18 @@ sound.Add(soundData)
 //AWP
 ////
 local soundData = {
+    name 		= "Weapon_CAWP.Single" ,
+    channel 	= CHAN_WEAPON,
+    volume 		= 1,
+    soundlevel 	= 80,
+    pitchstart 	= 100,
+    pitchend 	= 100,
+    sound 		= "csgo/awp/awp1.wav"
+}
+
+sound.Add(soundData)
+
+local soundData = {
     name 		= "Weapon_Cawp.Draw" ,
     channel 	= CHAN_ITEM,
     volume 		= 1,
@@ -966,18 +978,6 @@ local soundData = {
     pitchstart 	= 100,
     pitchend 	= 100,
     sound 		= "csgo/mp7/mp7-1.wav"
-}
-
-sound.Add(soundData)
-
-local soundData = {
-    name 		= "Weapon_Cmp7.Single" ,
-    channel 	= CHAN_WEAPON,
-    volume 		= 1,
-    soundlevel 	= 80,
-    pitchstart 	= 100,
-    pitchend 	= 100,
-    sound 		= "csgo/bizon/bizon-1.wav"
 }
 
 sound.Add(soundData)

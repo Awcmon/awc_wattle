@@ -64,6 +64,7 @@ SWEP.Primary.MuzzleEffects		= { "effect_wat_muzzle_flash", "effect_wat_muzzle_sm
 
 SWEP.RecoilPitchAdd 			= 6
 SWEP.RecoilPitchMul 			= 0.1
+SWEP.RecoilPitchMulAddMax		= 10
 SWEP.RecoilYawAdd 				= 0.5
 SWEP.RecoilYawMul 				= 0.02
 
