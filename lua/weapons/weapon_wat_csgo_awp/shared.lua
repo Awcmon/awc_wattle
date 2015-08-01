@@ -96,7 +96,7 @@ SWEP.SwayAngDiv					= 13
 SWEP.UseIrons					= true
 SWEP.UseScope					= true
 SWEP.Zoom 						= 60
-SWEP.SetFATOnShoot 				= false
+SWEP.SetFATOnShoot 				= true
 SWEP.CVFireAnimIroned			= false
 
 SWEP.DTFloats 					= {}
