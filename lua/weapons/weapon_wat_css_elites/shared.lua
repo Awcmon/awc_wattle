@@ -12,7 +12,7 @@ SWEP.m_WeaponDeploySpeed 		= 1
 SWEP.Author 					= "Awcmon"
 SWEP.Contact 					= ""
 SWEP.Purpose 					= "Max Payne"
-SWEP.Instructions 				= "Whack the sucka"
+SWEP.Instructions 				= "The truth was a burning green crack through my brain. Weapon statistics hanging in the air, glimpsed out of the corner of my eye. Endless repetition of the act of shooting, time slowing down to show off my moves. The paranoid feel of someone controlling my every step. I was in a computer game. Funny as Hell, it was the most horrible thing I could think of."
 
 SWEP.ViewModel					= "models/weapons/cstrike/c_pist_elite.mdl"
 SWEP.WorldModel					= "models/weapons/w_pist_elite.mdl"
