@@ -15,7 +15,7 @@ SWEP.Purpose 					= "Max Payne"
 SWEP.Instructions 				= "Whack the sucka"
 
 SWEP.ViewModel					= "models/weapons/cstrike/c_pist_elite.mdl"
-SWEP.WorldModel					= "models/weapons/w_pist_fiveseven.mdl"
+SWEP.WorldModel					= "models/weapons/w_pist_elite.mdl"
 SWEP.ViewModelFlip 				= false
 SWEP.ViewModelFOV 				= 57
 
@@ -49,7 +49,7 @@ SWEP.Secondary.Automatic 		= false
 SWEP.UseHands 					= true
 SWEP.AccurateCrosshair 			= false
 ---------
-SWEP.HoldType 					= "pistol"
+SWEP.HoldType 					= "duel"
 
 SWEP.Primary.Damage 			= 35
 SWEP.Primary.DamageFalloff		= 0.03
