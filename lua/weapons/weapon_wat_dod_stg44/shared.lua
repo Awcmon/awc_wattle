@@ -55,13 +55,14 @@ SWEP.Primary.Damage 			= 50
 SWEP.Primary.DamageFalloff		= 0.0001
 SWEP.Primary.Sound				= Sound("Weapon_MP44.Shoot")
 SWEP.Primary.NumShots			= 1
-SWEP.Primary.Delay				= 60/550
+SWEP.Primary.Delay				= 60/666
 SWEP.Primary.Cone				= 0.0025
 SWEP.Primary.ClumpCone			= 0
 SWEP.Primary.Tracer				= 0
 SWEP.Primary.TracerName			= "effect_wat_tracer_smoke"
 SWEP.Primary.MuzzleEffects		= { "effect_wat_muzzle_flash", "effect_wat_muzzle_smoke", "effect_wat_muzzle_sparks" }
 
+/*
 SWEP.RecoilPitchAdd 			= 4
 SWEP.RecoilPitchMul 			= 0.1
 SWEP.RecoilPitchMulAddMax		= 10
@@ -72,6 +73,18 @@ SWEP.SpreadConeAdd 				= 0.01
 SWEP.SpreadRecoveryTime 		= 0.4
 SWEP.SpreadConeAddCrouch 		= 0.01
 SWEP.SpreadRecoveryTimeCrouch 	= 1
+*/
+
+SWEP.RecoilPitchAdd 			= 2
+SWEP.RecoilPitchMul 			= 0.1
+SWEP.RecoilPitchMulAddMax		= 10
+SWEP.RecoilYawAdd 				= 0.5
+SWEP.RecoilYawMul 				= 0.05
+
+SWEP.SpreadConeAdd 				= 0.0025
+SWEP.SpreadRecoveryTime 		= 2
+SWEP.SpreadConeAddCrouch 		= 0.0015
+SWEP.SpreadRecoveryTimeCrouch 	= 0.2
 
 SWEP.SpreadModVel 				= 0.08
 SWEP.SpreadModVelMax 			= 0.225

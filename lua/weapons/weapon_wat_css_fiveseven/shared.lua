@@ -2,7 +2,7 @@
 AddCSLuaFile( "shared.lua" )
 
 ---------
-SWEP.PrintName 					= "Mac-10"
+SWEP.PrintName 					= "Five-Seven"
 SWEP.Category 					= "Wattle CS:S"
 SWEP.Base 						= "weapon_wattlebase_bullet"
 SWEP.Spawnable 					= true
@@ -14,8 +14,8 @@ SWEP.Contact 					= ""
 SWEP.Purpose 					= ""
 SWEP.Instructions 				= ""
 
-SWEP.ViewModel					= "models/weapons/cstrike/c_smg_mac10.mdl"
-SWEP.WorldModel					= "models/weapons/w_smg_mac10.mdl"
+SWEP.ViewModel					= "models/weapons/cstrike/c_pist_fiveseven.mdl"
+SWEP.WorldModel					= "models/weapons/w_pist_fiveseven.mdl"
 SWEP.ViewModelFlip 				= false
 SWEP.ViewModelFOV 				= 57
 
@@ -30,16 +30,16 @@ SWEP.DrawWeaponInfoBox 			= true
 SWEP.DrawAmmo 					= true
 SWEP.DrawCrosshair 				= false
 //SWEP.RenderGroup 				= 
-SWEP.Slot 						= 2
+SWEP.Slot 						= 1
 SWEP.SlotPos 					= 1
 //SWEP.WepSelection 				= 
 SWEP.CSMuzzleFlashes 			= true
 SWEP.CSMuzzleX 					= false
 
-SWEP.Primary.ClipSize			= 30
+SWEP.Primary.ClipSize			= 20
 SWEP.Primary.DefaultClip 		= 120
 SWEP.Primary.Ammo 				= "pistol"
-SWEP.Primary.Automatic 			= true
+SWEP.Primary.Automatic 			= false
 
 SWEP.Secondary.ClipSize 		= -1
 SWEP.Secondary.DefaultClip 		= -1
@@ -49,64 +49,65 @@ SWEP.Secondary.Automatic 		= false
 SWEP.UseHands 					= true
 SWEP.AccurateCrosshair 			= false
 ---------
-SWEP.HoldType = "ar2"
+SWEP.HoldType 					= "pistol"
 
-SWEP.Primary.Damage 			= 42
-SWEP.Primary.DamageFalloff		= 0.3
-SWEP.Primary.Sound				= Sound("Weapon_Mac10.Single")
+SWEP.Primary.Damage 			= 25
+SWEP.Primary.DamageFalloff		= 0.0005
+SWEP.Primary.Sound				= Sound("Weapon_fiveseven.Single")
 SWEP.Primary.NumShots			= 1
-SWEP.Primary.Delay				= 60/1090
-SWEP.Primary.Cone				= 0.0075
+SWEP.Primary.Delay				= 60/500
+SWEP.Primary.Cone				= 0.0015
 SWEP.Primary.ClumpCone			= 0
 SWEP.Primary.Tracer				= 0
 SWEP.Primary.TracerName			= "Tracer"
 SWEP.Primary.MuzzleEffects		= { "effect_wat_muzzle_flash", "effect_wat_muzzle_smoke", "effect_wat_muzzle_sparks" }
 
-SWEP.RecoilPitchAdd 			= 0.75
-SWEP.RecoilPitchMul 			= 0.05
+SWEP.RecoilPitchAdd 			= 1
+SWEP.RecoilPitchMul 			= 0.5
 SWEP.RecoilPitchMulAddMax		= 10
-SWEP.RecoilYawAdd 				= 0.3
-SWEP.RecoilYawMul 				= 0.01
+SWEP.RecoilYawAdd 				= 3
+SWEP.RecoilYawMul 				= 0.05
 
 SWEP.SpreadConeAdd 				= 0.005
-SWEP.SpreadRecoveryTime 		= 1
+SWEP.SpreadRecoveryTime 		= 0.8
 SWEP.SpreadConeAddCrouch 		= 0.0015
 SWEP.SpreadRecoveryTimeCrouch 	= 0.2
 
-SWEP.SpreadModVel 				= 0.01
-SWEP.SpreadModVelMax 			= 0.0001
-SWEP.SpreadModInAir				= 0.03
+SWEP.SpreadModVel 				= 0.005
+SWEP.SpreadModVelMax 			= 0
+SWEP.SpreadModInAir				= 0.015
 SWEP.SpreadModCrouch 			= 0.0002
 
-SWEP.ReloadClipInTime			= 2
+SWEP.ReloadClipInTime			= 2.2
 
 SWEP.VMPosOffset 				= Vector(0,0,0)
 SWEP.VMAngOffset				= Angle(0,0,0)
 SWEP.SprintPos	 				= { Vector(2.5, -19.5, -16), Vector(3, -17.5, -15), Vector(3.5, -19.5, -16) }
 SWEP.SprintAng					= { Angle(70, 1, 0), Angle(70, 0, 0), Angle(70, -1.5, 0) }
-SWEP.WalkPos 					= { Vector(-0.5,0,0), Vector(0,0,0.5), Vector(0.5,0,0) }
-SWEP.WalkAng					= { Angle(-0.5,-0.5,-1), Angle(0.5,0,0), Angle(-0.5,0.5,0.5) }
+SWEP.WalkPos 					= { Vector(-0.15,0,0), Vector(0,0,0.5), Vector(0.15,0,0) }
+SWEP.WalkAng					= { Angle(-0.5,0.5,-1), Angle(0,0,0), Angle(-0.5,-0.5,1.5) }
 SWEP.InspectPos 				= { Vector(12.486, -7.711, -0.457), Vector(1.736, -3.172, -12.464) }
 SWEP.InspectAng 				= { Angle(15.713, 31.607, -0.935), Angle(24.268, 12.053, -13.905) }
-SWEP.IronSightsPos 				= Vector(4.599, 0, 2.279)
-SWEP.IronSightsAng 				= Angle(-0.017, 0, 0)
-SWEP.SwayPosDiv					= 35
-SWEP.SwayAngDiv					= 12
+SWEP.IronSightsPos 				= Vector(-5.921, -2.708, 2.599)
+SWEP.IronSightsAng 				= Angle(0.057, -0.029, 0)
+SWEP.SwayPosDiv					= 30
+SWEP.SwayAngDiv					= 11
 
 SWEP.UseIrons					= false
 SWEP.UseScope					= false
-SWEP.Zoom 						= 20
+SWEP.Zoom 						= 30
 SWEP.SetFATOnShoot 				= false
 SWEP.CVFireAnimIroned			= false
 
 SWEP.DTFloats 					= {}
-SWEP.DTBools 					= {}
+SWEP.DTBools 					= { "Silenced" }
 SWEP.DTInts 					= {}
 
 SWEP.ViewModelBoneMods = {
 	["ValveBiped.Bip01_L_UpperArm"] = { scale = Vector(1, 1, 1), pos = Vector(0, 0, 0), angle = Angle(0, 0, 0) },
 	["ValveBiped.Bip01_L_Forearm"] = { scale = Vector(1, 1, 1), pos = Vector(0, 0, 0), angle = Angle(0, 0, 0) },
-	["ValveBiped.Bip01_L_Hand"] = { scale = Vector(1, 1, 1), pos = Vector(0, 0, 0), angle = Angle(0, 0, 0) }
+	["ValveBiped.Bip01_L_Hand"] = { scale = Vector(1, 1, 1), pos = Vector(0, 0, 0), angle = Angle(0, 0, 0) },
+	["v_weapon.USP_Silencer"] = { scale = Vector(1, 1, 1), pos = Vector(0, 0, 0), angle = Angle(0, 0, 0) }
 }
 SWEP.VElements = {}
 SWEP.WElements = {}
@@ -114,9 +115,9 @@ SWEP.WElements = {}
 function SWEP:WatCalcViewThink( ply, origin, angles, fov )
 	
 	if( (CurTime() < self.SIT + 5) || (self:IsSprinting() && !self:GetReloading() && (CurTime() + (ply:Ping()/1000) > self:GetFAT()) ) ) && (CurTime() > self:GetNextSecondaryFire()) then
-		self.ViewModelBoneMods["ValveBiped.Bip01_L_UpperArm"].pos = SmoothApproachVector(self.ViewModelBoneMods["ValveBiped.Bip01_L_UpperArm"].pos, Vector(-20,0,-20), FrameTime()*3)
-		self.ViewModelBoneMods["ValveBiped.Bip01_L_Forearm"].pos = SmoothApproachVector(self.ViewModelBoneMods["ValveBiped.Bip01_L_Forearm"].pos, Vector(-20,0,-20), FrameTime()*3)
-		self.ViewModelBoneMods["ValveBiped.Bip01_L_Hand"].pos = SmoothApproachVector(self.ViewModelBoneMods["ValveBiped.Bip01_L_Hand"].pos, Vector(-20,0,-20), FrameTime()*3)
+		self.ViewModelBoneMods["ValveBiped.Bip01_L_UpperArm"].pos = SmoothApproachVector(self.ViewModelBoneMods["ValveBiped.Bip01_L_UpperArm"].pos, Vector(0,0,-10), FrameTime()*3)
+		self.ViewModelBoneMods["ValveBiped.Bip01_L_Forearm"].pos = SmoothApproachVector(self.ViewModelBoneMods["ValveBiped.Bip01_L_Forearm"].pos, Vector(0,10,0), FrameTime()*3)
+		self.ViewModelBoneMods["ValveBiped.Bip01_L_Hand"].pos = SmoothApproachVector(self.ViewModelBoneMods["ValveBiped.Bip01_L_Hand"].pos, Vector(0,10,0), FrameTime()*3)
 	else
 		self.ViewModelBoneMods["ValveBiped.Bip01_L_UpperArm"].pos = SmoothApproachVector(self.ViewModelBoneMods["ValveBiped.Bip01_L_UpperArm"].pos, Vector(0,0,0), FrameTime()*10)
 		self.ViewModelBoneMods["ValveBiped.Bip01_L_Forearm"].pos = SmoothApproachVector(self.ViewModelBoneMods["ValveBiped.Bip01_L_Forearm"].pos, Vector(0,0,0), FrameTime()*10)
