@@ -15,7 +15,7 @@ SWEP.Purpose 					= ""
 SWEP.Instructions 				= ""
 
 SWEP.ViewModel					= "models/weapons/cstrike/c_rif_famas.mdl"
-SWEP.WorldModel					= "models/weapons/w_rif_galil.mdl"
+SWEP.WorldModel					= "models/weapons/w_rif_famas.mdl"
 SWEP.ViewModelFlip 				= false
 SWEP.ViewModelFOV 				= 57
 
