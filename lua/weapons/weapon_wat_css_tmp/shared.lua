@@ -51,8 +51,8 @@ SWEP.AccurateCrosshair 			= false
 ---------
 SWEP.HoldType = "ar2"
 
-SWEP.Primary.Damage 			= 30
-SWEP.Primary.DamageFalloff		= 0.075
+SWEP.Primary.Damage 			= 20
+SWEP.Primary.DamageFalloff		= 0.045
 SWEP.Primary.Sound				= Sound("Weapon_TMP.Single")
 SWEP.Primary.NumShots			= 1
 SWEP.Primary.Delay				= 60/900
@@ -62,9 +62,9 @@ SWEP.Primary.Tracer				= 0
 SWEP.Primary.TracerName			= "Tracer"
 SWEP.Primary.MuzzleEffects		= { "effect_wat_muzzle_flash", "effect_wat_muzzle_smoke", "effect_wat_muzzle_sparks" }
 
-SWEP.RecoilPitchAdd 			= 0.75
+SWEP.RecoilPitchAdd 			= 0.40
 SWEP.RecoilPitchMul 			= 0.05
-SWEP.RecoilPitchMulAddMax		= 10
+SWEP.RecoilPitchMulAddMax		= 2
 SWEP.RecoilYawAdd 				= 0.3
 SWEP.RecoilYawMul 				= 0.01
 
@@ -86,8 +86,8 @@ SWEP.SprintPos	 				= { Vector(2.5, -19.5, -16), Vector(3, -17.5, -15), Vector(3
 SWEP.SprintAng					= { Angle(70, 1, 0), Angle(70, 0, 0), Angle(70, -1.5, 0) }
 SWEP.WalkPos 					= { Vector(-0.5,0,0), Vector(0,0,0.5), Vector(0.5,0,0) }
 SWEP.WalkAng					= { Angle(-0.5,-0.5,-1), Angle(0.5,0,0), Angle(-0.5,0.5,0.5) }
-SWEP.InspectPos 				= { Vector(12.486, -7.711, -0.457), Vector(1.736, -3.172, -12.464) }
-SWEP.InspectAng 				= { Angle(15.713, 31.607, -0.935), Angle(24.268, 12.053, -13.905) }
+SWEP.InspectPos 				= { Vector(16.149, -22, -4.721), Vector(3.08, -18.543, -16.634) }
+SWEP.InspectAng 				= { Angle(70, 14.902, 48.02), Angle(57.903, 28.409, 0) }
 SWEP.IronSightsPos 				= Vector(4.599, 0, 2.279)
 SWEP.IronSightsAng 				= Angle(-0.017, 0, 0)
 SWEP.SwayPosDiv					= 35
