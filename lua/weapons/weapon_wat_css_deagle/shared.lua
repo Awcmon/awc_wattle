@@ -68,7 +68,7 @@ SWEP.RecoilPitchMulAddMax		= 10
 SWEP.RecoilYawAdd 				= 3
 SWEP.RecoilYawMul 				= 0.05
 
-SWEP.SpreadConeAdd 				= 0.005
+SWEP.SpreadConeAdd 				= 0.03
 SWEP.SpreadRecoveryTime 		= 0.8
 SWEP.SpreadConeAddCrouch 		= 0.0015
 SWEP.SpreadRecoveryTimeCrouch 	= 0.2

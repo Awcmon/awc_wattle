@@ -51,7 +51,7 @@ SWEP.AccurateCrosshair 			= false
 ---------
 SWEP.HoldType = "crossbow"
 
-SWEP.Primary.Damage 			= 85
+SWEP.Primary.Damage 			= 420
 SWEP.Primary.DamageFalloff		= 0.0005
 SWEP.Primary.Sound				= Sound("Weapon_Crossbow.Single")
 SWEP.Primary.NumShots			= 1

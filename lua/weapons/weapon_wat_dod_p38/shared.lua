@@ -51,25 +51,25 @@ SWEP.AccurateCrosshair 			= false
 ---------
 SWEP.HoldType = "ar2"
 
-SWEP.Primary.Damage 			= 35
+SWEP.Primary.Damage 			= 30
 SWEP.Primary.DamageFalloff		= 0.001
 SWEP.Primary.Sound				= Sound("Weapon_Luger.Shoot")
 SWEP.Primary.NumShots			= 1
 SWEP.Primary.Delay				= 60/450
-SWEP.Primary.Cone				= 0.00001
+SWEP.Primary.Cone				= 0.002
 SWEP.Primary.ClumpCone			= 0
 SWEP.Primary.Tracer				= 0
 SWEP.Primary.TracerName			= "effect_wat_tracer_smoke"
 SWEP.Primary.MuzzleEffects		= { "effect_wat_muzzle_flash", "effect_wat_muzzle_smoke", "effect_wat_muzzle_sparks" }
 
-SWEP.RecoilPitchAdd 			= 3
-SWEP.RecoilPitchMul 			= 0.1
-SWEP.RecoilPitchMulAddMax		= 10
-SWEP.RecoilYawAdd 				= 0.5
+SWEP.RecoilPitchAdd 			= 2
+SWEP.RecoilPitchMul 			= 0.5
+SWEP.RecoilPitchMulAddMax		= 5
+SWEP.RecoilYawAdd 				= 1
 SWEP.RecoilYawMul 				= 0.01
 
-SWEP.SpreadConeAdd 				= 0.02
-SWEP.SpreadRecoveryTime 		= 0.2
+SWEP.SpreadConeAdd 				= 0.01
+SWEP.SpreadRecoveryTime 		= 0.8
 SWEP.SpreadConeAddCrouch 		= 0.02
 SWEP.SpreadRecoveryTimeCrouch 	= 0.2
 

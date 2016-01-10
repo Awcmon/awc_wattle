@@ -52,7 +52,7 @@ SWEP.AccurateCrosshair 			= false
 SWEP.HoldType = "pistol"
 
 SWEP.Primary.Damage 			= 30
-SWEP.Primary.DamageFalloff		= 0.0005
+SWEP.Primary.DamageFalloff		= 0.075
 SWEP.Primary.Sound				= Sound("Weapon_Pistol.Single")
 SWEP.Primary.NumShots			= 1
 SWEP.Primary.Delay				= 60/450
@@ -62,14 +62,14 @@ SWEP.Primary.Tracer				= 0
 SWEP.Primary.TracerName			= "Tracer"
 SWEP.Primary.MuzzleEffects		= { "effect_wat_muzzle_flash", "effect_wat_muzzle_smoke", "effect_wat_muzzle_sparks" }
 
-SWEP.RecoilPitchAdd 			= 1
+SWEP.RecoilPitchAdd 			= 2
 SWEP.RecoilPitchMul 			= 0.5
 SWEP.RecoilPitchMulAddMax		= 10
 SWEP.RecoilYawAdd 				= 0.5
 SWEP.RecoilYawMul 				= 0.05
 
-SWEP.SpreadConeAdd 				= 0.005
-SWEP.SpreadRecoveryTime 		= 0.8
+SWEP.SpreadConeAdd 				= 0.02
+SWEP.SpreadRecoveryTime 		= 0.5
 SWEP.SpreadConeAddCrouch 		= 0.0015
 SWEP.SpreadRecoveryTimeCrouch 	= 0.2
 

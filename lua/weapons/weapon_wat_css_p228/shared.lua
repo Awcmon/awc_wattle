@@ -52,11 +52,11 @@ SWEP.AccurateCrosshair 			= false
 SWEP.HoldType 					= "pistol"
 
 SWEP.Primary.Damage 			= 38
-SWEP.Primary.DamageFalloff		= 0.005
+SWEP.Primary.DamageFalloff		= 0.06
 SWEP.Primary.Sound				= Sound("Weapon_p228.Single")
 SWEP.Primary.NumShots			= 1
 SWEP.Primary.Delay				= 60/500
-SWEP.Primary.Cone				= 0.0015
+SWEP.Primary.Cone				= 0.003
 SWEP.Primary.ClumpCone			= 0
 SWEP.Primary.Tracer				= 0
 SWEP.Primary.TracerName			= "Tracer"
@@ -73,7 +73,7 @@ SWEP.SpreadRecoveryTime 		= 0.8
 SWEP.SpreadConeAddCrouch 		= 0.0015
 SWEP.SpreadRecoveryTimeCrouch 	= 0.2
 
-SWEP.SpreadModVel 				= 0.0025
+SWEP.SpreadModVel 				= 0.004
 SWEP.SpreadModVelMax 			= 0
 SWEP.SpreadModInAir				= 0.015
 SWEP.SpreadModCrouch 			= 0.0002
