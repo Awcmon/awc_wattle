@@ -91,7 +91,7 @@ SWEP.InspectAng 				= { Angle(70, 14.902, 48.02), Angle(30.319, 44.328, -34.658)
 SWEP.IronSightsPos 				= Vector(-8.921, -2.708, 2.599)
 SWEP.IronSightsAng 				= Angle(0.057, -0.029, 0)
 SWEP.SwayPosDiv					= 30
-SWEP.SwayAngDiv					= 11
+SWEP.SwayAngDiv					= 15
 
 SWEP.UseIrons					= true
 SWEP.UseScope					= true

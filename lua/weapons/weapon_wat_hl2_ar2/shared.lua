@@ -73,7 +73,7 @@ SWEP.SpreadRecoveryTime 		= 0.6
 SWEP.SpreadConeAddCrouch 		= 0.0015
 SWEP.SpreadRecoveryTimeCrouch 	= 0.2
 
-SWEP.SpreadModVel 				= 0
+SWEP.SpreadModVel 				= 0.06
 SWEP.SpreadModVelMax 			= 0
 SWEP.SpreadModInAir				= 0.005
 SWEP.SpreadModCrouch 			= 0.0002
