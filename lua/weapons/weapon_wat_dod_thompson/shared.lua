@@ -51,19 +51,19 @@ SWEP.AccurateCrosshair 			= false
 ---------
 SWEP.HoldType = "ar2"
 
-SWEP.Primary.Damage 			= 45
+SWEP.Primary.Damage 			= 35
 SWEP.Primary.DamageFalloff		= 0.1
 SWEP.Primary.Sound				= Sound("Weapon_Thompson.Shoot")
 SWEP.Primary.NumShots			= 1
 SWEP.Primary.Delay				= 60/700
-SWEP.Primary.Cone				= 0.0025
+SWEP.Primary.Cone				= 0.006
 SWEP.Primary.ClumpCone			= 0
 SWEP.Primary.Tracer				= 0
 SWEP.Primary.TracerName			= "effect_wat_tracer_smoke"
 SWEP.Primary.MuzzleEffects		= { "effect_wat_muzzle_flash", "effect_wat_muzzle_smoke", "effect_wat_muzzle_sparks" }
 
-SWEP.RecoilPitchAdd 			= 2
-SWEP.RecoilPitchMul 			= 0.1
+SWEP.RecoilPitchAdd 			= 1
+SWEP.RecoilPitchMul 			= 0.05
 SWEP.RecoilPitchMulAddMax		= 10
 SWEP.RecoilYawAdd 				= 1
 SWEP.RecoilYawMul 				= 0.02
@@ -73,7 +73,7 @@ SWEP.SpreadRecoveryTime 		= 0.5
 SWEP.SpreadConeAddCrouch 		= 0.01
 SWEP.SpreadRecoveryTimeCrouch 	= 1
 
-SWEP.SpreadModVel 				= 0.035
+SWEP.SpreadModVel 				= 0.03
 SWEP.SpreadModVelMax 			= 0.225
 SWEP.SpreadModInAir				= 0.04
 SWEP.SpreadModCrouch 			= 0.0002
