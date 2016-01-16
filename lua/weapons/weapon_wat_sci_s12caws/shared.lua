@@ -82,8 +82,8 @@ SWEP.ReloadClipInTime			= 2.65
 
 SWEP.VMPosOffset 				= Vector(0,0,0)
 SWEP.VMAngOffset				= Angle(0,0,0)
-SWEP.SprintPos	 				= { Vector(-0.5,-2.5,-3), Vector(-0.5,-2.5,-3), Vector(-0.5,-2.5,-3) }
-SWEP.SprintAng					= { Angle(-12,32,-35), Angle(-6,35,-35), Angle(-12,38,-35) }
+SWEP.SprintPos	 				= { Vector(3.522, -2.518, -0.754), Vector(3.522, -0.518, -0.754), Vector(3.522, -2.518, -0.754) }
+SWEP.SprintAng					= { Angle(-9.03, 18.458, -1.721), Angle(-11.03, 20.458, -1.721), Angle(-9.03, 22.458, -1.721) }
 SWEP.WalkPos 					= { Vector(-0.5,-1,-1), Vector(0,0,1), Vector(0.5,-1,-1) }
 SWEP.WalkAng					= { Angle(-0.5,1,-2), Angle(0.5,0,2), Angle(-0.5,-1,3) }
 SWEP.InspectPos 				= { Vector(12.229, -7.091, -5.801), Vector(0.36, -4.553, -11.716) }
