@@ -51,13 +51,13 @@ SWEP.AccurateCrosshair 			= false
 ---------
 SWEP.HoldType 					= "shotgun"
 
-SWEP.Primary.Damage 			= 20
+SWEP.Primary.Damage 			= 23
 SWEP.Primary.DamageFalloff		= 0.15
 SWEP.Primary.Sound				= Sound("Weapon_M3.Single")
-SWEP.Primary.NumShots			= 6
+SWEP.Primary.NumShots			= 7
 SWEP.Primary.Delay				= 60/68
 SWEP.Primary.Cone				= 0.02
-SWEP.Primary.ClumpCone			= 0.0175
+SWEP.Primary.ClumpCone			= 0.02
 SWEP.Primary.Tracer				= 0
 SWEP.Primary.TracerName			= "Tracer"
 SWEP.Primary.MuzzleEffects		= { "effect_wat_muzzle_flash", "effect_wat_muzzle_smoke", "effect_wat_muzzle_sparks" }
