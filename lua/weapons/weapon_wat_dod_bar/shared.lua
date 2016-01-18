@@ -51,7 +51,7 @@ SWEP.AccurateCrosshair 			= false
 ---------
 SWEP.HoldType = "ar2"
 
-SWEP.Primary.Damage 			= 110
+SWEP.Primary.Damage 			= 60
 SWEP.Primary.DamageFalloff		= 0.0001
 SWEP.Primary.Sound				= Sound("Weapon_Bar.Shoot")
 SWEP.Primary.NumShots			= 1
@@ -62,7 +62,7 @@ SWEP.Primary.Tracer				= 0
 SWEP.Primary.TracerName			= "effect_wat_tracer_smoke"
 SWEP.Primary.MuzzleEffects		= { "effect_wat_muzzle_flash", "effect_wat_muzzle_smoke", "effect_wat_muzzle_sparks" }
 
-SWEP.RecoilPitchAdd 			= 4
+SWEP.RecoilPitchAdd 			= 2
 SWEP.RecoilPitchMul 			= 0.1
 SWEP.RecoilPitchMulAddMax		= 10
 SWEP.RecoilYawAdd 				= 2
