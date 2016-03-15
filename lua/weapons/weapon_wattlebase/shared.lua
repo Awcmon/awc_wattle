@@ -455,7 +455,7 @@ end
 
 if(CLIENT) then
 	function SWEP:PreDrawViewModel(vm, wep)
-		if(self:IsAiming() && self.UseScope && (WatAimProg >= 1)) then
+		if( (self:IsAiming() && self.UseScope && (WatAimProg >= 1)) || self.Zoom*WatAimProg >= self.ViewModelFOV ) then
 			render.ClearStencil()
 			render.SetStencilEnable(true)
 				

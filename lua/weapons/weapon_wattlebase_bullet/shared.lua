@@ -64,7 +64,8 @@ SWEP.Primary.MuzzleEffects		= { "effect_wat_muzzle_flash", "effect_wat_muzzle_sm
 
 SWEP.RecoilPitchAdd 			= 1.2
 SWEP.RecoilPitchMul 			= 0.2
-SWEP.RecoilYawAdd 				= 0.5
+SWEP.RecoilPitchMulAddMax		= 10
+SWEP.RecoilYawAdd 				= 4
 SWEP.RecoilYawMul 				= 0.05
 
 SWEP.SpreadConeAdd 				= 0.0025
@@ -191,13 +192,13 @@ function SWEP:Recoil()
 //	PunchAng.pitch = math.Clamp(PunchAng.pitch, -self.RecoilPitchMax,0)
 //	PunchAng.yaw = math.Clamp(PunchAng.yaw, -self.RecoilYawMax, self.RecoilYawMax)
 	local vpang = self.Owner:GetViewPunchAngles()
-	local ppitch = self.RecoilPitchAdd - vpang.pitch*self.RecoilPitchMul
+	local ppitch = self.RecoilPitchAdd + math.Clamp(-vpang.pitch*self.RecoilPitchMul, 0, self.RecoilPitchMulAddMax)
 	local pyaw = self.RecoilYawAdd + math.abs(vpang.pitch^2)*self.RecoilYawMul
 	local proll = math.Rand(-0.25,0.25)
 	local PunchAng = self.Owner:GetViewPunchAngles() + Angle(-ppitch, math.Rand(-pyaw, pyaw), proll)
 	
 	if(self:IsAiming()) then
-		PunchAng = PunchAng * 0.9
+		PunchAng = PunchAng * 0.5
 	end
 	
 	self.Owner:ViewPunchReset()

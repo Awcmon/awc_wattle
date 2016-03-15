@@ -398,7 +398,7 @@ if CLIENT then
 		
 	end
 	
-	// Added by Awcmon 07.14.15--------------------------------------------
+	//Awcmon 07.14.15--------------------------------------------
 	function SWEP:RemoveModels( tab )
 
 		if (!tab) then return end
@@ -416,7 +416,30 @@ if CLIENT then
 			end
 		end
 	end
-	//----------------------------------------------------------------------
+	
+	/*12.05.15 BFG wrote this part specifically
+	hook.Add("InitPostEntity", "SCKSetSetJoinTime", function(ply)
+		if CLIENT then
+			WATTLE_JOINED_TIME = CurTime()
+		end
+	end)
+	
+	function SCKEntityRemoved(ent)
+		if(CLIENT) then
+			if (CurTime() > (SCK_JOINED_TIME + 30)) then
+				--print("DEBUG:   " .. CurTime())
+				--print("DEBUG:   " .. SCK_JOINED_TIME + 30)
+				if(ent.VElements) then
+					ent:RemoveModels(ent.VElements)
+				end
+				if(ent.WElements) then
+					ent:RemoveModels(ent.WElements)
+				end
+			end
+		end
+	end
+	hook.Add("EntityRemoved", "SCKEntityRemoved", SCKEntityRemoved)
+	//----------------------------------------------------------------------*/
 	
 	local allbones
 	local hasGarryFixedBoneScalingYet = false

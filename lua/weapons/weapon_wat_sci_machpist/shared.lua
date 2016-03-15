@@ -51,8 +51,8 @@ SWEP.AccurateCrosshair 			= false
 ---------
 SWEP.HoldType 					= "revolver"
 
-SWEP.Primary.Damage 			= 25
-SWEP.Primary.DamageFalloff		= 0.02
+SWEP.Primary.Damage 			= 20
+SWEP.Primary.DamageFalloff		= 0.03
 SWEP.Primary.Sound				= Sound( "Weapon_Pistol.NPC_Single" )
 SWEP.Primary.NumShots			= 1
 SWEP.Primary.Delay				= 60/1200
@@ -64,6 +64,7 @@ SWEP.Primary.MuzzleEffects		= { "effect_wat_muzzle_flash", "effect_wat_muzzle_sm
 
 SWEP.RecoilPitchAdd 			= 0.1
 SWEP.RecoilPitchMul 			= 0.25
+SWEP.RecoilPitchMulAddMax		= 10
 SWEP.RecoilYawAdd				= 0.5
 SWEP.RecoilYawMul 				= 0.02
 
