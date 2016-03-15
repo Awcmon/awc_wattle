@@ -150,3 +150,10 @@ function SWEP:WatCalcViewThink( ply, origin, angles, fov )
 	end
 end
 
+function SWEP:Think()
+	self:WatThink()
+	self:WatInterruptedReloadThink()
+	if (self:Clip1() > 0) and self:GetOwner():KeyDown(IN_ATTACK) and not self:GetReloading() then
+		self.VElements.TurnMag.angle.yaw = self.VElements.TurnMag.angle.yaw + 30 * FrameTime()
+	end
+end
