@@ -179,7 +179,7 @@ local function LANFireBullets(entity, bulletData)
 	local wep = entity:GetActiveWeapon()
 	if wep.WaT_LAN22 then
 		bulletData.Callback = function(attacker, trace, dmg)
-				print(trace.HitGroup)
+				--print(trace.HitGroup)
 				if trace.HitGroup == HITGROUP_HEAD then
 					dmg:SetDamage(wep.BonusDamage)
 				end
