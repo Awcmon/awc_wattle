@@ -82,8 +82,8 @@ SWEP.ReloadClipInTime			= 2.3
 
 SWEP.VMPosOffset 				= Vector(0,0,0)
 SWEP.VMAngOffset				= Angle(0,0,0)
-SWEP.SprintPos	 				= { Vector(2.5, -19.5, -16), Vector(3, -17.5, -15), Vector(3.5, -19.5, -16) }
-SWEP.SprintAng					= { Angle(70, 1, 0), Angle(70, 0, 0), Angle(70, -1.5, 0) }
+SWEP.SprintPos	 				= { Vector(10, -5, -6), Vector(16, 2, -5), Vector(10, -4, -7) }
+SWEP.SprintAng					= { Angle(0, 35, -8), Angle(0, 40, -15), Angle(0, 30, -10) }
 SWEP.WalkPos 					= { Vector(-0.5,-1,-1), Vector(0,0,1), Vector(0.5,-1,-1) }
 SWEP.WalkAng					= { Angle(-0.5,1,-2), Angle(0.5,0,2), Angle(-0.5,-1,3) }
 SWEP.InspectPos 				= { Vector(12.229, -7.091, -5.801), Vector(0.36, -4.553, -11.716) }
@@ -102,6 +102,9 @@ SWEP.CVFireAnimIroned			= false
 SWEP.DTFloats 					= {}
 SWEP.DTBools 					= {}
 SWEP.DTInts 					= {}
+
+SWEP.WaT_LAN22 = true
+SWEP.BonusDamage = 12
 
 SWEP.ViewModelBoneMods = {
 	["ValveBiped.Bip01_L_UpperArm"] = { scale = Vector(1, 1, 1), pos = Vector(0, 0, 0), angle = Angle(0, 0, 0) },
@@ -139,7 +142,7 @@ SWEP.WElements = {
 
 function SWEP:WatCalcViewThink( ply, origin, angles, fov )
 	
-	if( (CurTime() < self.SIT + 5) || (self:IsSprinting() && !self:GetReloading() && (CurTime() + (ply:Ping()/1000) > self:GetFAT()) ) ) && (CurTime() > self:GetNextSecondaryFire()) then
+	if( (CurTime() < self.SIT + 5) --[[ || (self:IsSprinting() && !self:GetReloading() && (CurTime() + (ply:Ping()/1000) > self:GetFAT()) )]] ) && (CurTime() > self:GetNextSecondaryFire()) then
 		self.ViewModelBoneMods["ValveBiped.Bip01_L_UpperArm"].pos = SmoothApproachVector(self.ViewModelBoneMods["ValveBiped.Bip01_L_UpperArm"].pos, Vector(0,0,-10), FrameTime()*3)
 		self.ViewModelBoneMods["ValveBiped.Bip01_L_Forearm"].pos = SmoothApproachVector(self.ViewModelBoneMods["ValveBiped.Bip01_L_Forearm"].pos, Vector(0,10,0), FrameTime()*3)
 		self.ViewModelBoneMods["ValveBiped.Bip01_L_Hand"].pos = SmoothApproachVector(self.ViewModelBoneMods["ValveBiped.Bip01_L_Hand"].pos, Vector(0,10,0), FrameTime()*3)
@@ -157,3 +160,31 @@ function SWEP:Think()
 		self.VElements.TurnMag.angle.yaw = self.VElements.TurnMag.angle.yaw + 30 * FrameTime()
 	end
 end
+
+--[[
+local function HeadshotBonus(target, hitgroup, dmg)
+	--print(dmg:GetInflictor())
+	if hitgroup == HITGROUP_HEAD and dmg:GetInflictor().WaT_LAN22 then
+		dmg:SetDamageBonus(dmg:GetInflictor().BonusDamage)
+	end
+	--print(dmg:GetDamage())
+end
+
+hook.Add("ScalePlayerDamage", "WaT_LAN22_HeadshotBonus_Player", HeadshotBonus)
+hook.Add("ScaleNPCDamage", "WaT_LAN22_HeadshotBonus_NPC", HeadshotBonus)
+]]-- 
+--Didn't quite work out like I had planned, turns out the inflictor is actually the player as opposed to the SWEP.
+
+local function LANFireBullets(entity, bulletData)
+	local wep = entity:GetActiveWeapon()
+	if wep.WaT_LAN22 then
+		bulletData.Callback = function(attacker, trace, dmg)
+				print(trace.HitGroup)
+				if trace.HitGroup == HITGROUP_HEAD then
+					dmg:SetDamage(wep.BonusDamage)
+				end
+			end
+		return true
+	end
+end
+hook.Add("EntityFireBullets", "WaT_LAN22_FireBullets", LANFireBullets)
