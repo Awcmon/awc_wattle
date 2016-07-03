@@ -97,7 +97,7 @@ SWEP.UseIrons					= false
 SWEP.UseScope					= false
 SWEP.Zoom 						= 60
 SWEP.SetFATOnShoot 				= false
-SWEP.CVFireAnimIroned			= false
+SWEP.CVFireAnimIroned			= true
 
 SWEP.DTFloats 					= {}
 SWEP.DTBools 					= {}
@@ -112,15 +112,15 @@ SWEP.ViewModelBoneMods = {
 
 SWEP.VElements = {
 	["BarrelSkirt"] = { type = "Model", model = "models/hunter/tubes/tube1x1x2c.mdl", bone = "ValveBiped.Bip01_Spine4", rel = "Barrel", pos = Vector(0, -0.16, -1.601), angle = Angle(0, -90, 0), size = Vector(0.024, 0.024, 0.068), color = Color(255, 255, 255, 255), surpresslightning = false, material = "metal2a", skin = 0, bodygroup = {} },
-	["Scope"] = { type = "Model", model = "models/props_c17/oildrum001.mdl", bone = "ValveBiped.Bip01_Spine4", rel = "Top2", pos = Vector(3.196, 0, -0.051), angle = Angle(90, 0, 0), size = Vector(0.045, 0.045, 0.136), color = Color(255, 255, 255, 255), surpresslightning = false, material = "metal2a", skin = 0, bodygroup = {} },
-	["Top"] = { type = "Model", model = "models/hunter/blocks/cube1x150x1.mdl", bone = "v_weapon.p90_Parent", rel = "", pos = Vector(0, -5.338, -4.032), angle = Angle(0, 0, 90), size = Vector(0.037, 0.085, 0.054), color = Color(255, 255, 255, 255), surpresslightning = false, material = "metal2", skin = 0, bodygroup = {} },
-	["SpinBase"] = { type = "Model", model = "models/props_junk/PopCan01a.mdl", bone = "v_weapon.p90_Parent", rel = "MagBase", pos = Vector(-0.301, 0, 3.595), angle = Angle(-90, 0, 0), size = Vector(0.05, 0.05, 0.05), color = Color(255, 255, 255, 255), surpresslightning = false, material = "", skin = 0, bodygroup = {} },
+	["Scope"] = { type = "Model", model = "models/props_c17/oildrum001.mdl", bone = "ValveBiped.Bip01_Spine4", rel = "Top2", pos = Vector(1.842, 0, 0), angle = Angle(90, 0, 0), size = Vector(0.045, 0.045, 0.136), color = Color(255, 255, 255, 255), surpresslightning = false, material = "metal2a", skin = 0, bodygroup = {} },
 	["BarrelSkirt+"] = { type = "Model", model = "models/hunter/tubes/tube1x1x2c.mdl", bone = "ValveBiped.Bip01_Spine4", rel = "Barrel", pos = Vector(0, 0.159, -1.601), angle = Angle(0, 90, 0), size = Vector(0.024, 0.024, 0.068), color = Color(255, 255, 255, 255), surpresslightning = false, material = "metal2a", skin = 0, bodygroup = {} },
-	["ScopeLens"] = { type = "Model", model = "models/props_c17/clock01.mdl", bone = "ValveBiped.Bip01_Spine4", rel = "Scope", pos = Vector(0, 0, 0.07), angle = Angle(180, 0, 0), size = Vector(0.064, 0.064, 0.064), color = Color(0, 175, 20, 255), surpresslightning = true, material = "models/shiny", skin = 0, bodygroup = {} },
-	["Barrel"] = { type = "Model", model = "models/hunter/tubes/tube1x1x2.mdl", bone = "v_weapon.p90_Parent", rel = "", pos = Vector(0, -3.951, -9.995), angle = Angle(0, 0, 0), size = Vector(0.021, 0.021, 0.068), color = Color(255, 255, 255, 255), surpresslightning = false, material = "metal2", skin = 0, bodygroup = {} },
+	["SpinBase"] = { type = "Model", model = "models/props_junk/PopCan01a.mdl", bone = "v_weapon.p90_Parent", rel = "MagBase", pos = Vector(-0.301, 0, 3.595), angle = Angle(-90, 0, 0), size = Vector(0.05, 0.05, 0.05), color = Color(255, 255, 255, 255), surpresslightning = false, material = "", skin = 0, bodygroup = {} },
 	["MagBase"] = { type = "Model", model = "models/Items/battery.mdl", bone = "v_weapon.p90_Clip", rel = "", pos = Vector(0, -0.225, -4.391), angle = Angle(0, 90, 0), size = Vector(0.314, 0.472, 0.513), color = Color(255, 255, 255, 255), surpresslightning = false, material = "", skin = 0, bodygroup = {} },
+	["ScopeLens"] = { type = "Model", model = "models/props_c17/clock01.mdl", bone = "ValveBiped.Bip01_Spine4", rel = "Scope", pos = Vector(0, 0, 0.07), angle = Angle(180, 0, 0), size = Vector(0.064, 0.064, 0.064), color = Color(0, 175, 20, 255), surpresslightning = true, material = "models/shiny", skin = 0, bodygroup = {} },
 	["TurnMag"] = { type = "Model", model = "models/props_phx/wheels/trucktire.mdl", bone = "ValveBiped.Bip01_Spine4", rel = "SpinBase", pos = Vector(0, 0, -0.318), angle = Angle(0, -180, 0), size = Vector(0.075, 0.075, 0.1), color = Color(175, 175, 175, 255), surpresslightning = false, material = "phoenix_storms/metalfloor_2-3", skin = 0, bodygroup = {} },
-	["Top2"] = { type = "Model", model = "models/hunter/triangles/trapezium3x3x1c.mdl", bone = "ValveBiped.Bip01_Spine4", rel = "Top", pos = Vector(0, -0.028, -1.946), angle = Angle(0, 90, 180), size = Vector(0.064, 0.037, 0.027), color = Color(255, 255, 255, 255), surpresslightning = false, material = "metal2", skin = 0, bodygroup = {} }
+	["Top"] = { type = "Model", model = "models/hunter/blocks/cube1x150x1.mdl", bone = "v_weapon.p90_Parent", rel = "", pos = Vector(0, -5.338, -4.032), angle = Angle(0, 0, 90), size = Vector(0.037, 0.085, 0.054), color = Color(255, 255, 255, 255), surpresslightning = false, material = "metal2", skin = 0, bodygroup = {} },
+	["Barrel"] = { type = "Model", model = "models/hunter/tubes/tube1x1x2.mdl", bone = "v_weapon.p90_Parent", rel = "", pos = Vector(0, -3.951, -9.995), angle = Angle(0, 0, 0), size = Vector(0.021, 0.021, 0.068), color = Color(255, 255, 255, 255), surpresslightning = false, material = "metal2", skin = 0, bodygroup = {} },
+	["Top2"] = { type = "Model", model = "models/hunter/triangles/trapezium3x3x1c.mdl", bone = "ValveBiped.Bip01_Spine4", rel = "Top", pos = Vector(0, -1.298, -1.879), angle = Angle(0, 90, 180), size = Vector(0.037, 0.037, 0.037), color = Color(255, 255, 255, 255), surpresslightning = false, material = "metal2", skin = 0, bodygroup = {} }
 }
 
 SWEP.WElements = {
@@ -150,3 +150,14 @@ function SWEP:WatCalcViewThink( ply, origin, angles, fov )
 	end
 end
 
+function SWEP:WatViewModelCalcViewFireAnimIroned( ply, origin, angles, fov )
+
+	if(!self.CVFireAnimIroned) then return self.cvfaiviewmodel end
+
+	if ((self.CVFAIOldLST != self:GetLST())) then
+		self.VElements["TurnMag"].angle.y = math.NormalizeAngle(self.VElements["TurnMag"].angle.y + 10)
+		self.CVFAIOldLST = self:GetLST()
+	end
+	
+	return self.cvfaiviewmodel
+end
