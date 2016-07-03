@@ -274,7 +274,7 @@ function SWEP:DrawScope()
 	
 	local sm = 1.1 - (math.Clamp(CurTime() + (ply:Ping()/1000) - self:GetLST(), 0, 0.2)*0.5)
 
-	local hitpos = (ply:GetShootPos() + (ply:GetAimVector():Angle() + ply:GetViewPunchAngles()*0.8):Forward()*100000)
+	local hitpos = (ply:GetShootPos() + (ply:GetAimVector():Angle() + ply:GetViewPunchAngles()*0.5):Forward()*100000)
 	
 	local coords = hitpos:ToScreen()
 	

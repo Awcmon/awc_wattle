@@ -198,7 +198,7 @@ function SWEP:Recoil()
 	local PunchAng = self.Owner:GetViewPunchAngles() + Angle(-ppitch, math.Rand(-pyaw, pyaw), proll)
 	
 	if(self:IsAiming()) then
-		PunchAng = PunchAng * 0.5
+		PunchAng = PunchAng * 0.75
 	end
 	
 	self.Owner:ViewPunchReset()
