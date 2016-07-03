@@ -106,7 +106,6 @@ SWEP.DTInts 					= {}
 SWEP.ViewModelBoneMods = {}
 SWEP.VElements = {}
 SWEP.WElements = {}
-
 /*
 function SWEP:SecondaryAttack()
 	if(!IsValid(self)) then return end
@@ -146,15 +145,19 @@ function SWEP:SecondaryAttack()
 	end
 
 	if SERVER then
-		local bolt = ents.Create("prop_combine_ball")
-		bolt:SetPos(self:GetOwner():GetShootPos())
-		bolt:SetAngles(dir:Angle())
-		bolt:SetOwner(self:GetOwner())
-		//bolt.m_iDamage = self.Primary.Damage
-		//bolt:SetKeyValue("m_iDamage", "200")
-		bolt:Spawn()
-
-		bolt:SetVelocity(bolt:GetAngles():Forward() * 30000)
+		local cballspawner = ents.Create( "point_combine_ball_launcher" )
+		cballspawner:SetAngles( self.Owner:GetAngles())
+		cballspawner:SetPos( self.Owner:GetShootPos() + self.Owner:GetAimVector()*80)
+		cballspawner:SetKeyValue( "minspeed",2000 )
+		cballspawner:SetKeyValue( "maxspeed", 2000 )
+		cballspawner:SetKeyValue( "ballradius", "10" )
+		cballspawner:SetKeyValue( "ballcount", "1" )
+		cballspawner:SetKeyValue( "maxballbounces", "42" )
+		cballspawner:SetKeyValue( "launchconenoise", 0 )
+		cballspawner:Spawn()
+		cballspawner:Activate()
+		cballspawner:Fire( "LaunchBall" )
+		cballspawner:Fire("kill","",0)
 	end
 
 	self:SetCone(self:GetCone() + coneAdd)
