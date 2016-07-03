@@ -53,7 +53,7 @@ SWEP.HoldType = "pistol"
 
 //math.randomseed(CurTime())
 
-SWEP.Primary.Damage 			= math.random(10,70)
+SWEP.Primary.Damage 			= math.random(10,100)
 SWEP.Primary.DamageFalloff		= math.Rand(0.0005, 0.4)
 SWEP.Primary.Sound				= Sound("Weapon_USP.Single")
 SWEP.Primary.NumShots			= 1
@@ -70,8 +70,8 @@ SWEP.RecoilPitchMulAddMax		= math.Rand(2, 20)
 SWEP.RecoilYawAdd 				= math.Rand(0, 5)
 SWEP.RecoilYawMul 				= math.Rand(0, 1)
 
-SWEP.SpreadConeAdd 				= math.Rand(0, 0.35)
-SWEP.SpreadRecoveryTime 		= math.Rand(0, 2)
+SWEP.SpreadConeAdd 				= math.Rand(0, 0.15)
+SWEP.SpreadRecoveryTime 		= math.Rand(0, 1)
 SWEP.SpreadConeAddCrouch 		= 0.0015
 SWEP.SpreadRecoveryTimeCrouch 	= 0.2
 
